@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1045 &1
+EditorBuildSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Scenes:
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: 37d04f59ea44246ca94e134b81d0fa48
+  - enabled: 1
+    path: Assets/Scenes/Instruction1.unity
+    guid: 4269982b824b24c4a8233173ceb92b92
+  - enabled: 1
+    path: Assets/Scenes/Level1_Scene.unity
+    guid: 5be6e362085d94931989529c1a524b71
+  - enabled: 1
+    path: Assets/Scenes/Level1CompletedMenu.unity
+    guid: 6365d329df4f6455488aeb6ee38ab441
+  - enabled: 1
+    path: Assets/Scenes/Instruction2.unity
+    guid: e7adf001b1a914b51b49342c9acd8cbe
+  - enabled: 1
+    path: Assets/Scenes/Level2_Scene.unity
+    guid: c51aba5d3050644398e76c7b590d1723
+  - enabled: 1
+    path: Assets/Scenes/Level2CompletedMenu.unity
+    guid: 3e48f2c09b2244cf6a88a1016cf67573
+  - enabled: 1
+    path: Assets/Scenes/Instruction3.unity
+    guid: 32c4f11d9e2014666a55de8542b4376a
+  - enabled: 1
+    path: Assets/Scenes/Level3_Scene.unity
+    guid: e9b5bafd893cb446daa9aced10ea354b
+  - enabled: 1
+    path: Assets/Scenes/Level3CompletedMenu.unity
+    guid: 7b8438b7718f8421c8dadedbd08ece27
+  m_configObjects:
+    com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: 5d02cfad0ff2f4158a69c57dfb94b18d,
+      type: 2}
+    com.unity.adaptiveperformance.simulator.provider_settings: {fileID: 11400000,
+      guid: fff8d33eacec2474ab6d780b0eded55d, type: 2}
