@@ -19,7 +19,7 @@ public class BurgerCounterScript : MonoBehaviour
     }
 
     public void ChangeAmount(int num){
-        int amount = int.Parse(text.text);
+//        int amount = int.Parse(text.text);
         amount += num;
         text.text =  amount.ToString();
     }

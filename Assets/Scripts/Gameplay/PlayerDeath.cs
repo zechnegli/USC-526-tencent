@@ -48,7 +48,7 @@ namespace Platformer.Gameplay
                     BurgerCounterScript.instance.resetAmount();
                 }
                 
-                CoinCounterScript.instance.resetAmount();
+//                CoinCounterScript.instance.resetAmount();
                 player.health.Die();
                 model.virtualCamera.m_Follow = null;
                 model.virtualCamera.m_LookAt = null;
