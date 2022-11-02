@@ -18,7 +18,7 @@ public class VegetableCounterScript : MonoBehaviour
     }
 
     public void ChangeAmount(int num){
-        int amount = int.Parse(text.text);
+      //  int amount = int.Parse(text.text);
         amount += num;
         text.text =  amount.ToString();
     }
@@ -26,5 +26,6 @@ public class VegetableCounterScript : MonoBehaviour
     public void resetAmount()
     {
         text.text = "0";
+        amount = 0;
     }
 }

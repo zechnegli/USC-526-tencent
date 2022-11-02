@@ -32,9 +32,18 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Instruction3.unity
     guid: 32c4f11d9e2014666a55de8542b4376a
+  - enabled: 0
+    path: Assets/Scenes/Level1_TimeScene.unity
+    guid: 87d94f1def77ca241baa2a028d90d847
+  - enabled: 0
+    path: Assets/Scenes/Level2_TimeScene.unity
+    guid: 49d7713c9e466b542b6b47dc46ab0c34
   - enabled: 1
     path: Assets/Scenes/Level3_Scene.unity
     guid: e9b5bafd893cb446daa9aced10ea354b
+  - enabled: 0
+    path: Assets/Scenes/Level3_TimeScene.unity
+    guid: 464dea04e42fbe544b4e2746b4dab67f
   - enabled: 1
     path: Assets/Scenes/Level3CompletedMenu.unity
     guid: 7b8438b7718f8421c8dadedbd08ece27

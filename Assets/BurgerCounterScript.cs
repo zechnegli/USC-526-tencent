@@ -27,6 +27,7 @@ public class BurgerCounterScript : MonoBehaviour
     public void resetAmount()
     {
         text.text = "0";
+        amount = 0;
     }
 
 }

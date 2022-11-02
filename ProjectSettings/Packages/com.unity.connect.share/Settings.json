@@ -21,7 +21,7 @@
             {
                 "type": "System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
                 "key": "buildOutputDirList",
-                "value": "{\"m_Value\":\"/Users/jiajun/Desktop/combinedLevels/WebGL Builds;/Users/yangjiezhao/Downloads/combinedLevels/WebGL Builds/Build;/Users/lyuangyu/Downloads/combinedLevels/WebGL Builds;/Users/lizecheng/Desktop/combinedLevels/WebGL Builds;/Users/yiweizhang/Desktop/combinedLevels/WebGL Builds;/Users/liuhaozhe/Desktop/team1_endtimer_enemy_death/WebGL Builds;E:/usc学习资料/CSCI 526 mobile game design/team1_endtimer_enemy_death/WebGL Builds;/Users/zechengli/Desktop/week5/team1_endtimer_enemy_death/WebGL Builds;/Users/yangqian/CSCI 526/merged-1 2/WebGL Builds;/Users/zechengli/Desktop/merged-1/WebGL Builds\"}"
+                "value": "{\"m_Value\":\"E:/uscLearningMaterial/CSCI 526 mobile game design/USC-526-tencent/WebGL Builds;/Users/jiajun/Desktop/combinedLevels/WebGL Builds;/Users/yangjiezhao/Downloads/combinedLevels/WebGL Builds/Build;/Users/lyuangyu/Downloads/combinedLevels/WebGL Builds;/Users/lizecheng/Desktop/combinedLevels/WebGL Builds;/Users/yiweizhang/Desktop/combinedLevels/WebGL Builds;/Users/liuhaozhe/Desktop/team1_endtimer_enemy_death/WebGL Builds;E:/usc学习资料/CSCI 526 mobile game design/team1_endtimer_enemy_death/WebGL Builds;/Users/zechengli/Desktop/week5/team1_endtimer_enemy_death/WebGL Builds;/Users/yangqian/CSCI 526/merged-1 2/WebGL Builds\"}"
             }
         ]
     }
