@@ -41,6 +41,7 @@ namespace Platformer.Gameplay
                 }
                 else
                 {
+                    Debug.Log("killed enemy");
                     Schedule<EnemyDeath>().enemy = enemy;
                     player.Bounce(2);
                 }

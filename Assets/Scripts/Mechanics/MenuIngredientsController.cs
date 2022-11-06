@@ -9,7 +9,8 @@ public class MenuIngredientsController : MonoBehaviour
     //绑定订单食材类
     public GameObject MenuIngredient;
     //食材 list
-    public List<string> ingredientsImagesString = new List<string> {"images/vegetable03","images/meat01","images/bread02"};
+   
+    public List<string> ingredientsImagesString = new List<string> {"images/lettuce","images/steak","images/breadSlice"};
     List<GameObject> ingredients = new List<GameObject>();
     // Start is called before the first frame update
     void Start()
@@ -31,6 +32,7 @@ public class MenuIngredientsController : MonoBehaviour
             ob.transform.localScale = new Vector3((float)0.5,(float)0.5,0);
 
             Image icon = ob.transform.GetChild(0).GetComponent<Image>();
+            Debug.Log(" this image is " + ingredientsImagesString[i]);
             Sprite s = Resources.Load<Sprite>(ingredientsImagesString[i]);
             icon.sprite = s;
 
@@ -69,14 +71,20 @@ public class MenuIngredientsController : MonoBehaviour
         int veges = ingredients[0] ? int.Parse(ingredients[0].GetComponentsInChildren<TextMeshProUGUI>()[0].text) : 0;
         int meats = ingredients[1] ? int.Parse(ingredients[1].GetComponentsInChildren<TextMeshProUGUI>()[0].text) : 0;
         int bread = ingredients[2] ? int.Parse(ingredients[2].GetComponentsInChildren<TextMeshProUGUI>()[0].text) : 0;
-        int t_veges = int.Parse(VegetableCounterScript.instance.text.text);
-        int t_meats = int.Parse(MeatCounterScript.instance.text.text);
-        int t_bread = int.Parse(BreadCounterScript.instance.text.text);
+       // int t_veges = int.Parse(VegetableCounterScript.instance.text.text);
+      //  int t_meats = int.Parse(MeatCounterScript.instance.text.text);
+         int t_veges = int.Parse(lettuceCounterScript.instance.text.text);
+        int t_meats = int.Parse(steakCounterScript.instance.text.text);
+       // int t_bread = int.Parse(BreadCounterScript.instance.text.text);
+       int t_bread = int.Parse(breadSliceCounterScript.instance.text.text);
         
         if((veges <= t_veges) & (meats <= t_meats) & (bread <= t_bread)){
-            MeatCounterScript.instance.ChangeAmount(-meats);
-            BreadCounterScript.instance.ChangeAmount(-bread);
-            VegetableCounterScript.instance.ChangeAmount(-veges);
+          //  MeatCounterScript.instance.ChangeAmount(-meats);
+          steakCounterScript.instance.ChangeAmount(-meats);
+          //  BreadCounterScript.instance.ChangeAmount(-bread);
+         //   VegetableCounterScript.instance.ChangeAmount(-veges);
+         lettuceCounterScript.instance.ChangeAmount(-veges);
+         breadSliceCounterScript.instance.ChangeAmount(-bread);
             return true;
         }
         

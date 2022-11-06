@@ -13,14 +13,14 @@ public class MeatCounterScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        amount = int.Parse(text.text);
+     //   amount = int.Parse(text.text);
         if(instance == null){
             instance = this;
          }
     }
 
     public void ChangeAmount(int num){
-        int amount = int.Parse(text.text);
+      //  int amount = int.Parse(text.text);
         amount += num;
         text.text =  amount.ToString();
     }
@@ -28,5 +28,6 @@ public class MeatCounterScript : MonoBehaviour
     public void resetAmount()
     {
         text.text = "0";
+        amount = 0;
     }
 }

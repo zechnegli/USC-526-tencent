@@ -1018,7 +1018,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Target: Collect burgers to win game.\nControl: Press 'left arrow'/'right
+  m_text: "Target: Collect burgers and serve 5 customers.\nControl: Press 'left arrow'/'right
     arrow' to move left/right. \nPress 'space' to jump. Keep pressing 'space' for
     a super jump.\n"
   m_isRightToLeft: 0

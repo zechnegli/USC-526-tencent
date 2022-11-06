@@ -26,6 +26,9 @@ namespace Platformer.Mechanics
         public int expectCoins = 300;
         public bool sendTime = false;
 
+       // public TMP_Text usingTimeText;
+       // public float timeUsed;
+
         /// <summary>
         /// Max horizontal speed of the player.
         /// </summary>
@@ -95,7 +98,10 @@ namespace Platformer.Mechanics
                 {
                     timeRemaining -= Time.deltaTime;
                     DisplayTime(timeRemaining);
-
+                    /*
+                    timeUsed += Time.deltaTime;
+                    DisplayTime2(timeUsed);
+                    */
                     if(CoinCounterScript.instance.amount >= expectCoins && sendTime == false)
                     {
                         TimeDataCollection.controller.Send(timePeriod(timeText.text));
@@ -104,17 +110,23 @@ namespace Platformer.Mechanics
                         //load the success page when player collect expectCoins amount of coins
                         Scene currentScene = SceneManager.GetActiveScene();
                         string sceneName = currentScene.name;
+
+                        
+
                         if (sceneName == "Level1_Scene")
                         {
+
                             SceneManager.LoadScene("Level1CompletedMenu");
                         }
                         else if (sceneName == "Level2_Scene")
                         {
                             SceneManager.LoadScene("Level2CompletedMenu");
+                           
                         }
                         else
                         {
                             SceneManager.LoadScene("Level3CompletedMenu");
+                          
                         }
                         SceneManager.UnloadScene(sceneName);
 
@@ -171,6 +183,8 @@ namespace Platformer.Mechanics
                         //timeRemaining = 180;
                         //timerIsRunning = true;
                         Ending.controller.Send("Succeess");
+                      //  TimeUsedMenu.controller.displayTime(DisplayTime2(timeUsed));
+                      //  SceneManager.LoadScene("TimeUsedScene");
                         SceneManager.LoadScene("CompletedMenu");
                         
                     }
@@ -193,6 +207,17 @@ namespace Platformer.Mechanics
             //Debug.LogFormat("timeToDisplay = {0}, minutes = {1}, seconds = {2}", timeToDisplay, minutes, seconds);
             timeText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
         }
+        /*
+        string DisplayTime2(float timeToDisplay)
+        {
+            //timeToDisplay += 1;
+            float minutes = Mathf.FloorToInt(timeToDisplay / 60);
+            float seconds = Mathf.FloorToInt(timeToDisplay % 60);
+            //Debug.LogFormat("timeToDisplay = {0}, minutes = {1}, seconds = {2}", timeToDisplay, minutes, seconds);
+
+            usingTimeText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
+            return string.Format("{0:00}:{1:00}", minutes, seconds);
+        }*/
 
         string timePeriod(string currentTime){
             char[] seperator = {':'};
