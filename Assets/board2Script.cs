@@ -31,7 +31,7 @@ public class board2Script : MonoBehaviour
     void Update()
     {
         if(t){
-           if(Input.GetKeyDown(KeyCode.C)){
+           if(BreadCounterScript.instance.amount > 0 && keyPress()){
             Debug.Log("bread cut ");
                int amount = BreadCounterScript.instance.amount;
                Debug.Log("bread amount is " + amount);
@@ -41,5 +41,33 @@ public class board2Script : MonoBehaviour
            }
             
         }
+    }
+    
+    public bool keyPress() {  
+        if (Input.GetKeyDown (KeyCode.P))
+        {
+            print("press key");
+            ProgressBar.instance.displayProgressBar();
+            //Touch Begin - True when the finger touches the screen
+            //Play animation for chicken squat
+        }
+        else if(Input.GetKey (KeyCode.P))
+        {
+            print("hold key");
+            ProgressBar.instance.incrementProgress(0.1f);
+            //Touch Continued - True when the finger is still touching the screen
+            if (ProgressBar.instance.checkIfSliderToFull()) {
+                ProgressBar.instance.hideProgressBar();
+                return true;
+            }
+        }
+        else if(Input.GetKeyUp (KeyCode.P))
+        {
+            print("release key");
+            ProgressBar.instance.hideProgressBar();
+            //Touch End - True when the finger is lifted from the screen
+            //Play animation for chicken jump
+        }
+        return false;
     }
 }

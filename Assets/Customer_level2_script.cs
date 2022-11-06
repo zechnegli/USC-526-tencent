@@ -62,7 +62,7 @@ public class Customer_level2_script : MonoBehaviour
             if(this.gameObject.name == "customer1"){
                 if(steamingBurgerCounterScript.instance.amount >= 2){
     //                dialog.SetActive(false);           
-                    if (Input.GetKeyDown(KeyCode.P)) { 
+                    if (keyPress()) { 
                         steamingBurgerCounterScript.instance.ChangeAmount(-2);
                         CoinCounterScript.instance.ChangeAmount(40);
                         this.gameObject.transform.localPosition = new Vector3(-10,-10, 0);
@@ -98,7 +98,7 @@ public class Customer_level2_script : MonoBehaviour
             if(this.gameObject.name == "customer4"){
                 if(steamingBurgerCounterScript.instance.amount >= 2){
     //                dialog.SetActive(false);           
-                    if (Input.GetKeyDown(KeyCode.P)) { 
+                    if (keyPress()) { 
                         steamingBurgerCounterScript.instance.ChangeAmount(-2);
                         CoinCounterScript.instance.ChangeAmount(40);
                         this.gameObject.transform.localPosition = new Vector3(-10,-10, 0);
@@ -110,7 +110,7 @@ public class Customer_level2_script : MonoBehaviour
             if(this.gameObject.name == "customer5"){
                 if(steamingBurgerCounterScript.instance.amount >= 4){
     //                dialog.SetActive(false);           
-                    if (Input.GetKeyDown(KeyCode.P)) { 
+                    if (keyPress()) { 
                         steamingBurgerCounterScript.instance.ChangeAmount(-4);
                         CoinCounterScript.instance.ChangeAmount(80);
                         this.gameObject.transform.localPosition = new Vector3(-10,-10, 0);
@@ -123,6 +123,37 @@ public class Customer_level2_script : MonoBehaviour
         }
     
     }
+    
+    public bool keyPress() {  
+        var progressBar = GetComponent<ProgressBar>();
+        if (Input.GetKeyDown (KeyCode.P))
+        {
+            print("press key");
+            progressBar.displayProgressBar();
+            //Touch Begin - True when the finger touches the screen
+            //Play animation for chicken squat
+        }
+        else if(Input.GetKey (KeyCode.P))
+        {
+            print("hold key");
+            progressBar.incrementProgress(0.1f);
+            //Touch Continued - True when the finger is still touching the screen
+            if (progressBar.checkIfSliderToFull()) {
+                progressBar.hideProgressBar();
+                return true;
+            }
+        }
+        else if(Input.GetKeyUp (KeyCode.P))
+        {
+            print("release key");
+            progressBar.hideProgressBar();
+            //Touch End - True when the finger is lifted from the screen
+            //Play animation for chicken jump
+        }
+        return false;
+    }
+    
+    
 
 
 }
