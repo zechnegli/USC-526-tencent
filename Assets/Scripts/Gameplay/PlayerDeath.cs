@@ -44,11 +44,27 @@ namespace Platformer.Gameplay
                 if(BreadCounterScript.instance){
                     BreadCounterScript.instance.resetAmount();
                 }
+
+                if(breadSliceCounterScript.instance){
+                    breadSliceCounterScript.instance.resetAmount();
+                }
+                if(steakCounterScript.instance){
+                    steakCounterScript.instance.resetAmount();
+                }
+                if(lettuceCounterScript.instance){
+                    lettuceCounterScript.instance.resetAmount();
+                }
+
+
                 if(BurgerCounterScript.instance){
                     BurgerCounterScript.instance.resetAmount();
                 }
+                if(steamingBurgerCounterScript.instance){
+                    steamingBurgerCounterScript.instance.resetAmount();
+                }
                 
-                CoinCounterScript.instance.resetAmount();
+                
+//                CoinCounterScript.instance.resetAmount();
                 player.health.Die();
                 model.virtualCamera.m_Follow = null;
                 model.virtualCamera.m_LookAt = null;
@@ -59,7 +75,7 @@ namespace Platformer.Gameplay
                     player.audioSource.PlayOneShot(player.ouchAudio);
                 player.animator.SetTrigger("hurt");
                 player.animator.SetBool("dead", true);
-                player.timeRemaining = 60;
+                player.timeRemaining = 90;
                 player.timerIsRunning = true;
                 Simulation.Schedule<PlayerSpawn>(2);
             }

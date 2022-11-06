@@ -31,9 +31,9 @@ public class BurgerScript : MonoBehaviour
         {
           
             BurgerCounterScript.instance.ChangeAmount(burgernum);
-            CoinCounterScript.instance.ChangeAmount(20);
+//            CoinCounterScript.instance.ChangeAmount(20);
        
-          
+            Debug.Log(BurgerCounterScript.instance.amount);
             float x_coordinate = Random.Range(-4.3f, 43f);
             float y_coordinate = 0f;
             if (x_coordinate < 18.62)
