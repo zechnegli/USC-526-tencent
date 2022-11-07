@@ -45,7 +45,31 @@ namespace Platformer.Gameplay
                     Debug.Log("killed enemy");
                     Schedule<EnemyDeath>().enemy = enemy;
                     player.Bounce(2);
-                    if (BreadCounterScript.instance && MeatCounterScript.instance && VegetableCounterScript.instance)
+                    randomRewards();
+                  
+                }
+            }
+            else
+            {
+                Schedule<PlayerDeath>();
+               // if(sendDeathInfo == false){
+                 DeathReason.controller.Send("Enemy Collision");
+                 Ending.controller.Send("Fail");
+               //  sendDeathInfo = true;
+               // }
+               
+            }
+        }
+        
+        public void randomRewards() {
+            Random random = new Random();
+            int rewards = random.Next(0, 3);
+            if (rewards == 0) {
+                RewardCookingSpot.Instance.changePos();
+            } else if (rewards == 1) {
+                PlayerController.Instance.addTimeReward(10);
+            } else {
+                  if (BreadCounterScript.instance && MeatCounterScript.instance && VegetableCounterScript.instance)
                     {
                         Random rd = new Random();
                         int rd_num = rd.Next(1, 4);
@@ -68,18 +92,9 @@ namespace Platformer.Gameplay
                         BurgerCounterScript.instance.killbouns();
 
                     }
-                }
-            }
-            else
-            {
-                Schedule<PlayerDeath>();
-               // if(sendDeathInfo == false){
-                 DeathReason.controller.Send("Enemy Collision");
-                 Ending.controller.Send("Fail");
-               //  sendDeathInfo = true;
-               // }
-               
             }
         }
     }
+    
+    
 }

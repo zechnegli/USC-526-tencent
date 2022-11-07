@@ -30,7 +30,7 @@ public class MeatOvenScript : MonoBehaviour
     void Update()
     {
         if(t){
-           if(Input.GetKeyDown(KeyCode.H)){
+           if(MeatCounterScript.instance.amount > 0 && keyPress()){
               //  Debug.Log("recept H key");
                int amount = MeatCounterScript.instance.amount;
              //   Debug.Log("current meat " + amount );
@@ -41,5 +41,33 @@ public class MeatOvenScript : MonoBehaviour
            }
             
         }
+    }
+    
+     public bool keyPress() {  
+        if (Input.GetKeyDown (KeyCode.P))
+        {
+            print("press key");
+            ProgressBar.instance.displayProgressBar();
+            //Touch Begin - True when the finger touches the screen
+            //Play animation for chicken squat
+        }
+        else if(Input.GetKey (KeyCode.P))
+        {
+            print("hold key");
+            ProgressBar.instance.incrementProgress(0.1f);
+            //Touch Continued - True when the finger is still touching the screen
+            if (ProgressBar.instance.checkIfSliderToFull()) {
+                ProgressBar.instance.hideProgressBar();
+                return true;
+            }
+        }
+        else if(Input.GetKeyUp (KeyCode.P))
+        {
+            print("release key");
+            ProgressBar.instance.hideProgressBar();
+            //Touch End - True when the finger is lifted from the screen
+            //Play animation for chicken jump
+        }
+        return false;
     }
 }

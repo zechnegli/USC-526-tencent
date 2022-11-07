@@ -25,6 +25,7 @@ namespace Platformer.Mechanics
         public TMP_Text timeText;
         public int expectCoins = 300;
         public bool sendTime = false;
+        public static PlayerController Instance;
 
        // public TMP_Text usingTimeText;
        // public float timeUsed;
@@ -70,6 +71,10 @@ namespace Platformer.Mechanics
         {
             timerIsRunning = true;
             print("player start");
+            if (Instance == null)
+            {
+                Instance = this;
+            }
         }
 
         protected override void Update()
