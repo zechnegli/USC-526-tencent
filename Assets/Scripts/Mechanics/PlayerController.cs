@@ -219,6 +219,11 @@ namespace Platformer.Mechanics
             return string.Format("{0:00}:{1:00}", minutes, seconds);
         }*/
 
+        public void addTimeReward(int timeReward)
+        {
+            this.timeRemaining += timeReward;
+        }
+
         string timePeriod(string currentTime){
             char[] seperator = {':'};
             int count = 2;
