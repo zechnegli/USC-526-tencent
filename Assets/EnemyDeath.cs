@@ -19,12 +19,8 @@ namespace Platformer.Gameplay
         {
           
             
-            RewardCookingSpot.Instance.changePos();
+            // RewardCookingSpot.Instance.changePos();
             
-
-
-
-
 
             enemy._collider.enabled = false;
             enemy.control.enabled = false;
