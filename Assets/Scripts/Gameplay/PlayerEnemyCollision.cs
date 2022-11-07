@@ -3,6 +3,7 @@ using Platformer.Mechanics;
 using Platformer.Model;
 using UnityEngine;
 using static Platformer.Core.Simulation;
+using Random = System.Random;
 
 namespace Platformer.Gameplay
 {
@@ -44,6 +45,29 @@ namespace Platformer.Gameplay
                     Debug.Log("killed enemy");
                     Schedule<EnemyDeath>().enemy = enemy;
                     player.Bounce(2);
+                    if (BreadCounterScript.instance && MeatCounterScript.instance && VegetableCounterScript.instance)
+                    {
+                        Random rd = new Random();
+                        int rd_num = rd.Next(1, 4);
+                        if (rd_num == 1)
+                        {
+                            BreadCounterScript.instance.killbouns();
+                        }
+                        if (rd_num == 2)
+                        {
+                            MeatCounterScript.instance.killbouns();
+                        }
+                        if (rd_num == 3)
+                        {
+                            VegetableCounterScript.instance.killbouns();
+                        }
+                    }
+
+                    if (BurgerCounterScript.instance)
+                    {
+                        BurgerCounterScript.instance.killbouns();
+
+                    }
                 }
             }
             else

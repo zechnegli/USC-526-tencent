@@ -28,4 +28,10 @@ public class VegetableCounterScript : MonoBehaviour
         text.text = "0";
         amount = 0;
     }
+
+    public void killbouns()
+    {
+        amount += 1;
+        text.text = amount.ToString();
+    }
 }
