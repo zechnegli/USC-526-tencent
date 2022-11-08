@@ -20,7 +20,7 @@ public class KillText : MonoBehaviour
         if(instance == null){
             instance = this;
         }
-        ChangeAmount("MessageInput");
+        // ChangeAmount("MessageInput");
     }
 
      public void ChangeAmount(string inputMessage){
