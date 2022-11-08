@@ -3,6 +3,7 @@ using Platformer.Mechanics;
 using Platformer.Model;
 using UnityEngine;
 using static Platformer.Core.Simulation;
+using Random = System.Random;
 
 namespace Platformer.Gameplay
 {
@@ -41,8 +42,11 @@ namespace Platformer.Gameplay
                 }
                 else
                 {
+                    Debug.Log("killed enemy");
                     Schedule<EnemyDeath>().enemy = enemy;
                     player.Bounce(2);
+                    randomRewards();
+                  
                 }
             }
             else
@@ -56,5 +60,48 @@ namespace Platformer.Gameplay
                
             }
         }
+        
+        public void randomRewards() {
+            Random random = new Random();
+            int rewards = random.Next(0, 3);
+            if (rewards == 0) {
+                RewardCookingSpot.Instance.changePos();
+                KillText.instance.ChangeAmount("Killing Enemy Reward: You Were Send to a Magical Place!");
+                
+            } else if (rewards == 1) {
+                PlayerController.Instance.addTimeReward(10);
+                KillText.instance.ChangeAmount("Killing Enemy Reward: You Get 10 Seconds!");
+            } else {
+                  if (BreadCounterScript.instance && MeatCounterScript.instance && VegetableCounterScript.instance)
+                    {
+                        Random rd = new Random();
+                        int rd_num = rd.Next(1, 4);
+                        if (rd_num == 1)
+                        {
+                            BreadCounterScript.instance.killbouns();
+                            KillText.instance.ChangeAmount("Killing Enemy Reward: You Get One Bread!");
+                        }
+                        if (rd_num == 2)
+                        {
+                            MeatCounterScript.instance.killbouns();
+                            KillText.instance.ChangeAmount("Killing Enemy Reward: You Get One Meat!");
+                        }
+                        if (rd_num == 3)
+                        {
+                            VegetableCounterScript.instance.killbouns();
+                            KillText.instance.ChangeAmount("Killing Enemy Reward: You Get One Vegetable!");
+                        }
+                    }
+
+                    if (BurgerCounterScript.instance)
+                    {
+                        BurgerCounterScript.instance.killbouns();
+                        KillText.instance.ChangeAmount("Killing Enemy Reward: You Get One Burger!");
+
+                    }
+            }
+        }
     }
+    
+    
 }

@@ -9,6 +9,7 @@ public class BurgerCounterScript : MonoBehaviour
    public static BurgerCounterScript instance;
    public TextMeshProUGUI text;
    public int amount;
+   public int addnum;
 
     // Start is called before the first frame update
     void Start()
@@ -19,7 +20,7 @@ public class BurgerCounterScript : MonoBehaviour
     }
 
     public void ChangeAmount(int num){
-//        int amount = int.Parse(text.text);
+        //int amount = int.Parse(text.text);
         amount += num;
         text.text =  amount.ToString();
     }
@@ -28,6 +29,12 @@ public class BurgerCounterScript : MonoBehaviour
     {
         text.text = "0";
         amount = 0;
+    }
+
+    public void killbouns()
+    {
+        amount += 1;
+        text.text = amount.ToString();
     }
 
 }

@@ -39,6 +39,7 @@ namespace Platformer.Mechanics
                 var ev = Schedule<PlayerEnemyCollision>();
                 ev.player = player;
                 ev.enemy = this;
+                print("enemy dead");
 
 //                player.timeRemaining = 0;
 

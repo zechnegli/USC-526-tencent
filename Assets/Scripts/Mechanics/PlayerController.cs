@@ -25,6 +25,7 @@ namespace Platformer.Mechanics
         public TMP_Text timeText;
         public int expectCoins = 300;
         public bool sendTime = false;
+        public static PlayerController Instance;
 
        // public TMP_Text usingTimeText;
        // public float timeUsed;
@@ -70,6 +71,10 @@ namespace Platformer.Mechanics
         {
             timerIsRunning = true;
             print("player start");
+            if (Instance == null)
+            {
+                Instance = this;
+            }
         }
 
         protected override void Update()
@@ -218,6 +223,11 @@ namespace Platformer.Mechanics
             usingTimeText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
             return string.Format("{0:00}:{1:00}", minutes, seconds);
         }*/
+
+        public void addTimeReward(int timeReward)
+        {
+            this.timeRemaining += timeReward;
+        }
 
         string timePeriod(string currentTime){
             char[] seperator = {':'};

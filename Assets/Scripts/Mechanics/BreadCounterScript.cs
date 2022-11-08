@@ -30,6 +30,11 @@ public class BreadCounterScript : MonoBehaviour
         amount = 0;
     }
 
+    public void killbouns()
+    {
+        amount += 1;
+        text.text = amount.ToString();
+    }
 }
 
 
