@@ -66,11 +66,11 @@ namespace Platformer.Gameplay
             int rewards = random.Next(0, 3);
             if (rewards == 0) {
                 RewardCookingSpot.Instance.changePos();
-                KillText.instance.ChangeAmount("Killing Enemy Reward: You Were Send to a Magical Place!");
+                KillText.instance.ChangeAmount("Move to Magical Place");
                 
             } else if (rewards == 1) {
                 PlayerController.Instance.addTimeReward(10);
-                KillText.instance.ChangeAmount("Killing Enemy Reward: You Get 10 Seconds!");
+                KillText.instance.ChangeAmount("+10s");
             } else {
                   if (BreadCounterScript.instance && MeatCounterScript.instance && VegetableCounterScript.instance)
                     {
@@ -79,24 +79,24 @@ namespace Platformer.Gameplay
                         if (rd_num == 1)
                         {
                             BreadCounterScript.instance.killbouns();
-                            KillText.instance.ChangeAmount("Killing Enemy Reward: You Get One Bread!");
+                            KillText.instance.ChangeAmount("+Bread");
                         }
                         if (rd_num == 2)
                         {
                             MeatCounterScript.instance.killbouns();
-                            KillText.instance.ChangeAmount("Killing Enemy Reward: You Get One Meat!");
+                            KillText.instance.ChangeAmount("+Meat");
                         }
                         if (rd_num == 3)
                         {
                             VegetableCounterScript.instance.killbouns();
-                            KillText.instance.ChangeAmount("Killing Enemy Reward: You Get One Vegetable!");
+                            KillText.instance.ChangeAmount("+Vegetable");
                         }
                     }
 
                     if (BurgerCounterScript.instance)
                     {
                         BurgerCounterScript.instance.killbouns();
-                        KillText.instance.ChangeAmount("Killing Enemy Reward: You Get One Burger!");
+                        KillText.instance.ChangeAmount("+Burger");
 
                     }
             }
