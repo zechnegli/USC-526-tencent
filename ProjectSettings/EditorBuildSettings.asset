@@ -39,7 +39,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Level2_TimeScene.unity
     guid: 49d7713c9e466b542b6b47dc46ab0c34
   - enabled: 1
-    path: Assets/Scenes/Level3_Scene.unity
+    path: Assets/Scenes/Level4_Scene.unity
     guid: e9b5bafd893cb446daa9aced10ea354b
   - enabled: 0
     path: Assets/Scenes/Level3_TimeScene.unity
