@@ -18,12 +18,19 @@ public class OrdersController : MonoBehaviour
     List<float> Timers = new List<float>();
     //订单list
     List<GameObject> orders = new List<GameObject>();
+    //burger
+    public GameObject[] burgers;
     //keyboard输入list
     List<KeyCode> keyboardNums = new List<KeyCode>();
     private float timer = 0f;
     // Start is called before the first frame update
+    public static OrdersController instance;
     void Start()
     {
+        if (instance == null)
+        {
+            instance = this;
+        }
         for (int i = 0; i < OrdersMaxNum; i++)
         {
             GameObject newOb = GenerateOrder(i);
@@ -86,7 +93,7 @@ public class OrdersController : MonoBehaviour
 
         //show a new order after one second 
         timer += Time.deltaTime;
-        if (timer > 2f)
+        if (timer > 6f)
         {
             for (int i = 0; i < orders.Count; i++)
             {
@@ -123,7 +130,7 @@ public class OrdersController : MonoBehaviour
                 getPoints(Int32.Parse(reward.text));
             }
             currentOrder.SetActive(false);
-            
+            burgers[index].SetActive(false);
         }
         
     }
@@ -145,6 +152,7 @@ public class OrdersController : MonoBehaviour
         {
             GameObject currentOrder = orders[index];
             currentOrder.SetActive(true);
+            burgers[index].SetActive(true);
             GameObject currentIngredients = currentOrder.transform.GetChild(5).gameObject;
             updateOrderIngredients(currentIngredients);
             Timers[index] = (float)20.0;
@@ -156,5 +164,21 @@ public class OrdersController : MonoBehaviour
     {
         return new Vector3(-(float)1.5 + (float)num * (float)1 + (float) (num - 1.0) * (float)0.25, -(float)0.01, 0);
     }
+    
+    public void highlightOrder(int index) {
+        GameObject currentOrder = orders[index];
+        currentOrder.GetComponent<RawImage>().color = Color.red;
+    }
+    
+    public void deHighlightOrder(int index) {
+        GameObject currentOrder = orders[index];
+        currentOrder.GetComponent<RawImage>().color = new Color32(233, 182, 91, 255);
+    }
+    
+    public bool checkIfIngredientsCompleted(int index) {
+        GameObject currentOrder = orders[index];
+        return currentOrder.transform.GetChild(5).gameObject.GetComponent<MenuIngredientsController>().checkIngredients();
+    }
+    
 
 }
