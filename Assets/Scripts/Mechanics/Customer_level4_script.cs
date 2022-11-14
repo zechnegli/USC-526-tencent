@@ -51,6 +51,10 @@ public class Customer_level4_script : MonoBehaviour
     private void OnTriggerExit2D(Collider2D other)
     {
         t = false;
+        OrdersController.instance.deHighlightOrder(0);
+        OrdersController.instance.deHighlightOrder(1);
+        OrdersController.instance.deHighlightOrder(2);
+        OrdersController.instance.deHighlightOrder(3);
     }
     
     void Start(){
@@ -60,55 +64,60 @@ public class Customer_level4_script : MonoBehaviour
     void Update(){
         if(t){
             if(this.gameObject.name == "customer1"){
-            OrdersController.instance.highlightOrder(0);
-                if(steamingBurgerCounterScript.instance.amount >= 2){
+                OrdersController.instance.highlightOrder(0);
+                
     //                dialog.SetActive(false);           
                     if (Input.GetKeyDown(KeyCode.P)) { 
-                        steamingBurgerCounterScript.instance.ChangeAmount(-2);
-                        CoinCounterScript.instance.ChangeAmount(40);
-                        this.gameObject.transform.localPosition = new Vector3(-10,-10, 0);
-                        this.dialog.transform.localPosition = new Vector3(-10,-10, 0);
-                        Debug.Log("serve customer1");
+                        if(OrdersController.instance.checkIfIngredientsCompleted(0)){
+                        //MenuIngredientsController.instance.checkIngredients();
+                        //CoinCounterScript.instance.ChangeAmount(40);
+                            OrdersController.instance.hideOrder(0,1);
+                            // this.gameObject.transform.localPosition = new Vector3(-10,-10, 0);
+                            // this.dialog.transform.localPosition = new Vector3(-10,-10, 0);
+                            Debug.Log("serve customer1");
+                        }
                     }
-                }
             }
             if(this.gameObject.name == "customer2"){
-                if(steamingBurgerCounterScript.instance.amount >= 3){
-    //                dialog.SetActive(false);           
-                    if (Input.GetKeyDown(KeyCode.P)) { 
-                        steamingBurgerCounterScript.instance.ChangeAmount(-3);
-                        CoinCounterScript.instance.ChangeAmount(60);
-                        this.gameObject.transform.localPosition = new Vector3(-10,-10, 0);
-                        this.dialog.transform.localPosition = new Vector3(-10,-10, 0);
-                        Debug.Log("serve customer2");
+                OrdersController.instance.highlightOrder(1);
+                if (Input.GetKeyDown(KeyCode.P)) { 
+                        if(OrdersController.instance.checkIfIngredientsCompleted(1)){
+                        //MenuIngredientsController.instance.checkIngredients();
+                        //CoinCounterScript.instance.ChangeAmount(40);
+                            OrdersController.instance.hideOrder(1,1);
+                            // this.gameObject.transform.localPosition = new Vector3(-10,-10, 0);
+                            // this.dialog.transform.localPosition = new Vector3(-10,-10, 0);
+                            Debug.Log("serve customer2");
+                        }
                     }
-                }
             }
             if(this.gameObject.name == "customer3"){
-                if(steamingBurgerCounterScript.instance.amount >= 4){
-    //                dialog.SetActive(false);           
-                    if (Input.GetKeyDown(KeyCode.P)) { 
-                        steamingBurgerCounterScript.instance.ChangeAmount(-4);
-                        CoinCounterScript.instance.ChangeAmount(80);
-                        this.gameObject.transform.localPosition = new Vector3(-10,-10, 0);
-                        this.dialog.transform.localPosition = new Vector3(-10,-10, 0);
-                        Debug.Log("serve customer3");
+                OrdersController.instance.highlightOrder(2);
+                if (Input.GetKeyDown(KeyCode.P)) { 
+                        if(OrdersController.instance.checkIfIngredientsCompleted(2)){
+                        //MenuIngredientsController.instance.checkIngredients();
+                        //CoinCounterScript.instance.ChangeAmount(40);
+                            OrdersController.instance.hideOrder(2,1);
+                            // this.gameObject.transform.localPosition = new Vector3(-10,-10, 0);
+                            // this.dialog.transform.localPosition = new Vector3(-10,-10, 0);
+                            Debug.Log("serve customer3");
+                        }
                     }
-                }
             }
             if(this.gameObject.name == "customer4"){
-                if(steamingBurgerCounterScript.instance.amount >= 2){
-    //                dialog.SetActive(false);           
-                    if (Input.GetKeyDown(KeyCode.P)) { 
-                        steamingBurgerCounterScript.instance.ChangeAmount(-2);
-                        CoinCounterScript.instance.ChangeAmount(40);
-                        this.gameObject.transform.localPosition = new Vector3(-10,-10, 0);
-                        this.dialog.transform.localPosition = new Vector3(-10,-10, 0);
-                        Debug.Log("serve customer4");
+                OrdersController.instance.highlightOrder(3);
+                if (Input.GetKeyDown(KeyCode.P)) { 
+                        if(OrdersController.instance.checkIfIngredientsCompleted(3)){
+                        //MenuIngredientsController.instance.checkIngredients();
+                        //CoinCounterScript.instance.ChangeAmount(40);
+                            OrdersController.instance.hideOrder(3,1);
+                            // this.gameObject.transform.localPosition = new Vector3(-10,-10, 0);
+                            // this.dialog.transform.localPosition = new Vector3(-10,-10, 0);
+                            Debug.Log("serve customer4");
+                        }
                     }
-                }
             }
-            if(this.gameObject.name == "customer5"){
+            /* if(this.gameObject.name == "customer5"){
                 if(steamingBurgerCounterScript.instance.amount >= 4){
     //                dialog.SetActive(false);           
                     if (Input.GetKeyDown(KeyCode.P)) { 
@@ -120,8 +129,12 @@ public class Customer_level4_script : MonoBehaviour
                     }
                 }
             }
+            */
             
         }
+        
+        // 
+        
     
     }
     
