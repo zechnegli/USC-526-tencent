@@ -107,7 +107,7 @@ public class OrdersController : MonoBehaviour
         }
     }
 
-    void hideOrder(int index, int mode)
+    public void hideOrder(int index, int mode)
     {
         if (index < orders.Count)
         {

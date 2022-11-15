@@ -10,6 +10,7 @@ public class MenuIngredientsController : MonoBehaviour
     public GameObject MenuIngredient;
     //食材 list
    
+    public static MenuIngredientsController instance;
     public List<string> ingredientsImagesString = new List<string> {"images/lettuce","images/steak","images/breadSlice"};
     List<GameObject> ingredients = new List<GameObject>();
     // Start is called before the first frame update

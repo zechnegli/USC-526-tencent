@@ -33,19 +33,28 @@ EditorBuildSettings:
     path: Assets/Scenes/Instruction3.unity
     guid: 32c4f11d9e2014666a55de8542b4376a
   - enabled: 0
-    path: Assets/Scenes/Level1_TimeScene.unity
+    path: 
     guid: 87d94f1def77ca241baa2a028d90d847
+  - enabled: 1
+    path: Assets/Scenes/Instruction4.unity
+    guid: 14cec1b719737477dbc091de555322ad
   - enabled: 0
-    path: Assets/Scenes/Level2_TimeScene.unity
+    path: 
     guid: 49d7713c9e466b542b6b47dc46ab0c34
+  - enabled: 1
+    path: Assets/Scenes/Level3CompletedMenu.unity
+    guid: 5caa46c70296c4001a21b456723476bd
+  - enabled: 1
+    path: Assets/Scenes/Level3_Scene.unity
+    guid: 1c87ec52b7b3f4d5b9fcda368f5b5bfc
   - enabled: 1
     path: Assets/Scenes/Level4_Scene.unity
     guid: e9b5bafd893cb446daa9aced10ea354b
   - enabled: 0
-    path: Assets/Scenes/Level3_TimeScene.unity
+    path: 
     guid: 464dea04e42fbe544b4e2746b4dab67f
   - enabled: 1
-    path: Assets/Scenes/Level3CompletedMenu.unity
+    path: Assets/Scenes/Level4CompletedMenu.unity
     guid: 7b8438b7718f8421c8dadedbd08ece27
   m_configObjects:
     com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: 5d02cfad0ff2f4158a69c57dfb94b18d,

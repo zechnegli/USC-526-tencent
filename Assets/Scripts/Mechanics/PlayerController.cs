@@ -128,9 +128,14 @@ namespace Platformer.Mechanics
                             SceneManager.LoadScene("Level2CompletedMenu");
                            
                         }
-                        else
+                        else if (sceneName == "Level3_Scene")
                         {
                             SceneManager.LoadScene("Level3CompletedMenu");
+                           
+                        }
+                        else
+                        {
+                            SceneManager.LoadScene("Level4CompletedMenu");
                           
                         }
                         SceneManager.UnloadScene(sceneName);
