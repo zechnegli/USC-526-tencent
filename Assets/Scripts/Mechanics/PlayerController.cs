@@ -24,8 +24,10 @@ namespace Platformer.Mechanics
         public bool timerIsRunning = false;
         public TMP_Text timeText;
         public int expectCoins = 300;
+       public int expectCustomers = 5;
         public bool sendTime = false;
         public static PlayerController Instance;
+        private bool firstJump = true;
 
        // public TMP_Text usingTimeText;
        // public float timeUsed;
@@ -75,15 +77,27 @@ namespace Platformer.Mechanics
             {
                 Instance = this;
             }
+          
+          //  arrowHide.instance.hide();
+         //   KillText.instance.show("←A ↑space  D→", 6);
+          //  KillText.instance.show("↑ space", 6);
         }
 
         protected override void Update()
         {
+            Scene currentScene = SceneManager.GetActiveScene();
+            string sceneName = currentScene.name;
+
             if (controlEnabled)
             {
                 move.x = Input.GetAxis("Horizontal");
-                if (jumpState == JumpState.Grounded && Input.GetButtonDown("Jump"))
+                if (jumpState == JumpState.Grounded && Input.GetButtonDown("Jump")){
                     jumpState = JumpState.PrepareToJump;
+                    if(sceneName == "Level1_Scene" && firstJump){
+                        KillText.instance.show("Long Press To Jump Higher", 6);
+                        firstJump = false;
+                    }
+                 }
                 else if (Input.GetButtonUp("Jump"))
                 {
                     stopJump = true;
@@ -94,6 +108,12 @@ namespace Platformer.Mechanics
             {
                 move.x = 0;
             }
+
+            
+            if (sceneName == "Level1_Scene"){
+                arrowHide.instance.hide();
+            }
+
 
 
 
@@ -107,28 +127,49 @@ namespace Platformer.Mechanics
                     timeUsed += Time.deltaTime;
                     DisplayTime2(timeUsed);
                     */
-                    if(CoinCounterScript.instance.amount >= expectCoins && sendTime == false)
+
+                    Scene currentscene = SceneManager.GetActiveScene();
+                    string scenename = currentscene.name;
+                    if(scenename == "Level3_Scene" && CoinCounterScript.instance.amount >= expectCoins && sendTime == false){
+                        SceneManager.LoadScene("Level3CompletedMenu");
+                        SceneManager.UnloadScene(scenename);
+                    }
+                    else if(scenename == "Level1_Scene" && customerCounterScript.instance.amount >= 5 && sendTime == false){
+                        SceneManager.LoadScene("Level1CompletedMenu");
+                        SceneManager.UnloadScene(scenename);
+                    }
+                    else if(scenename == "Level2_Scene" && customerCounterScript.instance.amount >= 5 && sendTime == false){
+                        SceneManager.LoadScene("Level2CompletedMenu");
+                        SceneManager.UnloadScene(scenename);
+                    }
+                    else if(scenename == "Level4_Scene" && customerCounterScript.instance.amount >= 3 && sendTime == false){
+                        SceneManager.LoadScene("Level4CompletedMenu");
+                        SceneManager.UnloadScene(scenename);
+                    }
+
+                     //   if(CoinCounterScript.instance.amount >= expectCoins && sendTime == false)
+                     /*
+                     if(scenename != "Level3_Scene" && customerCounterScript.instance.amount >= expectCustomers && sendTime == false)
                     {
                         TimeDataCollection.controller.Send(timePeriod(timeText.text));
                         Ending.controller.Send("Succeess");
                         sendTime = true;
                         //load the success page when player collect expectCoins amount of coins
-                        Scene currentScene = SceneManager.GetActiveScene();
-                        string sceneName = currentScene.name;
+                       // Scene currentscene = SceneManager.GetActiveScene();
+                       // string scenename = currentscene.name;
 
-                        
-
-                        if (sceneName == "Level1_Scene")
+                        if (scenename == "Level1_Scene")
                         {
 
                             SceneManager.LoadScene("Level1CompletedMenu");
                         }
-                        else if (sceneName == "Level2_Scene")
+                        else if (scenename == "Level2_Scene")
                         {
                             SceneManager.LoadScene("Level2CompletedMenu");
                            
                         }
-                        else if (sceneName == "Level3_Scene")
+                        /*
+                        else if (scenename == "Level3_Scene")
                         {
                             SceneManager.LoadScene("Level3CompletedMenu");
                            
@@ -138,7 +179,7 @@ namespace Platformer.Mechanics
                             SceneManager.LoadScene("Level4CompletedMenu");
                           
                         }
-                        SceneManager.UnloadScene(sceneName);
+                        SceneManager.UnloadScene(scenename);
 
                         // TimeDataCollection.controller.Send(timePeriod(timeText.text));
 
@@ -157,7 +198,7 @@ namespace Platformer.Mechanics
 
 
 
-                    }
+                         }*/
 
 
                 }

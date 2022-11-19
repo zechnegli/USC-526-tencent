@@ -64,7 +64,8 @@ public class Customer_level2_script : MonoBehaviour
     //                dialog.SetActive(false);           
                     if (Input.GetKeyDown(KeyCode.P)) { 
                         steamingBurgerCounterScript.instance.ChangeAmount(-2);
-                        CoinCounterScript.instance.ChangeAmount(40);
+                     //   CoinCounterScript.instance.ChangeAmount(40);
+                     customerCounterScript.instance.ChangeAmount(1);
                         this.gameObject.transform.localPosition = new Vector3(-10,-10, 0);
                         this.dialog.transform.localPosition = new Vector3(-10,-10, 0);
                         Debug.Log("serve customer1");
@@ -76,7 +77,8 @@ public class Customer_level2_script : MonoBehaviour
     //                dialog.SetActive(false);           
                     if (Input.GetKeyDown(KeyCode.P)) { 
                         steamingBurgerCounterScript.instance.ChangeAmount(-3);
-                        CoinCounterScript.instance.ChangeAmount(60);
+                      //  CoinCounterScript.instance.ChangeAmount(60);
+                      customerCounterScript.instance.ChangeAmount(1);
                         this.gameObject.transform.localPosition = new Vector3(-10,-10, 0);
                         this.dialog.transform.localPosition = new Vector3(-10,-10, 0);
                         Debug.Log("serve customer2");
@@ -88,7 +90,8 @@ public class Customer_level2_script : MonoBehaviour
     //                dialog.SetActive(false);           
                     if (Input.GetKeyDown(KeyCode.P)) { 
                         steamingBurgerCounterScript.instance.ChangeAmount(-4);
-                        CoinCounterScript.instance.ChangeAmount(80);
+                      //  CoinCounterScript.instance.ChangeAmount(80);
+                      customerCounterScript.instance.ChangeAmount(1);
                         this.gameObject.transform.localPosition = new Vector3(-10,-10, 0);
                         this.dialog.transform.localPosition = new Vector3(-10,-10, 0);
                         Debug.Log("serve customer3");
@@ -100,7 +103,8 @@ public class Customer_level2_script : MonoBehaviour
     //                dialog.SetActive(false);           
                     if (Input.GetKeyDown(KeyCode.P)) { 
                         steamingBurgerCounterScript.instance.ChangeAmount(-2);
-                        CoinCounterScript.instance.ChangeAmount(40);
+                      //  CoinCounterScript.instance.ChangeAmount(40);
+                      customerCounterScript.instance.ChangeAmount(1);
                         this.gameObject.transform.localPosition = new Vector3(-10,-10, 0);
                         this.dialog.transform.localPosition = new Vector3(-10,-10, 0);
                         Debug.Log("serve customer4");
@@ -112,7 +116,8 @@ public class Customer_level2_script : MonoBehaviour
     //                dialog.SetActive(false);           
                     if (Input.GetKeyDown(KeyCode.P)) { 
                         steamingBurgerCounterScript.instance.ChangeAmount(-4);
-                        CoinCounterScript.instance.ChangeAmount(80);
+                       // CoinCounterScript.instance.ChangeAmount(80);
+                       customerCounterScript.instance.ChangeAmount(1);
                         this.gameObject.transform.localPosition = new Vector3(-10,-10, 0);
                         this.dialog.transform.localPosition = new Vector3(-10,-10, 0);
                         Debug.Log("serve customer5");

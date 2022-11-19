@@ -34,7 +34,8 @@ public class OvenScript : MonoBehaviour
     void Update()
     {
         if(t){
-           if(Input.GetKeyDown(KeyCode.H)){
+            KillText.instance.show("Long Press P To Heat Burgers", 2);
+           if(Input.GetKeyDown(KeyCode.P) ){
                int amount = BurgerCounterScript.instance.amount;
                BurgerCounterScript.instance.ChangeAmount(-amount);
                steamingBurgerCounterScript.instance.ChangeAmount(amount);
@@ -42,4 +43,6 @@ public class OvenScript : MonoBehaviour
             
         }
     }
+
+ 
 }

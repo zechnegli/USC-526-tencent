@@ -31,6 +31,7 @@ public class board2Script : MonoBehaviour
     void Update()
     {
         if(t){
+             KillText.instance.show("Long Press P To Cut Bread", 2);
            if(BreadCounterScript.instance.amount > 0 && keyPress()){
             Debug.Log("bread cut ");
                int amount = BreadCounterScript.instance.amount;
