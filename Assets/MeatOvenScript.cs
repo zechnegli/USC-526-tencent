@@ -30,6 +30,7 @@ public class MeatOvenScript : MonoBehaviour
     void Update()
     {
         if(t){
+             KillText.instance.show("Long Press P To Cook Meat", 2);
            if(MeatCounterScript.instance.amount > 0 && keyPress()){
               //  Debug.Log("recept H key");
                int amount = MeatCounterScript.instance.amount;

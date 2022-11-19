@@ -31,6 +31,7 @@ public class boardScript : MonoBehaviour
     void Update()
     {
         if(t){
+            KillText.instance.show("Long Press P To Cut Vegetable", 2);
            if(VegetableCounterScript.instance.amount > 0 && keyPress()){
                int amount = VegetableCounterScript.instance.amount;
                VegetableCounterScript.instance.ChangeAmount(-amount);

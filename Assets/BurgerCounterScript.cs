@@ -23,6 +23,7 @@ public class BurgerCounterScript : MonoBehaviour
         //int amount = int.Parse(text.text);
         amount += num;
         text.text =  amount.ToString();
+     //   KillText.instance.ChangeAmount("buger: " + amount.ToString());
     }
 
     public void resetAmount()

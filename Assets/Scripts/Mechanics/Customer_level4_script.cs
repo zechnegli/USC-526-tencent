@@ -72,6 +72,7 @@ public class Customer_level4_script : MonoBehaviour
                         //MenuIngredientsController.instance.checkIngredients();
                         //CoinCounterScript.instance.ChangeAmount(40);
                             OrdersController.instance.hideOrder(0,1);
+                             customerCounterScript.instance.ChangeAmount(1);
                             // this.gameObject.transform.localPosition = new Vector3(-10,-10, 0);
                             // this.dialog.transform.localPosition = new Vector3(-10,-10, 0);
                             Debug.Log("serve customer1");
@@ -85,6 +86,7 @@ public class Customer_level4_script : MonoBehaviour
                         //MenuIngredientsController.instance.checkIngredients();
                         //CoinCounterScript.instance.ChangeAmount(40);
                             OrdersController.instance.hideOrder(1,1);
+                             customerCounterScript.instance.ChangeAmount(1);
                             // this.gameObject.transform.localPosition = new Vector3(-10,-10, 0);
                             // this.dialog.transform.localPosition = new Vector3(-10,-10, 0);
                             Debug.Log("serve customer2");
@@ -98,12 +100,14 @@ public class Customer_level4_script : MonoBehaviour
                         //MenuIngredientsController.instance.checkIngredients();
                         //CoinCounterScript.instance.ChangeAmount(40);
                             OrdersController.instance.hideOrder(2,1);
+                             customerCounterScript.instance.ChangeAmount(1);
                             // this.gameObject.transform.localPosition = new Vector3(-10,-10, 0);
                             // this.dialog.transform.localPosition = new Vector3(-10,-10, 0);
                             Debug.Log("serve customer3");
                         }
                     }
             }
+            /*
             if(this.gameObject.name == "customer4"){
                 OrdersController.instance.highlightOrder(3);
                 if (Input.GetKeyDown(KeyCode.P)) { 
@@ -116,7 +120,7 @@ public class Customer_level4_script : MonoBehaviour
                             Debug.Log("serve customer4");
                         }
                     }
-            }
+            }*/
             /* if(this.gameObject.name == "customer5"){
                 if(steamingBurgerCounterScript.instance.amount >= 4){
     //                dialog.SetActive(false);           

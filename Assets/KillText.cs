@@ -30,6 +30,13 @@ public class KillText : MonoBehaviour
         flag = true;
     }
 
+    public void show(string inputMessage, int sec){
+//        int amount = int.Parse(text.text);
+        text.text =  inputMessage;
+        second =sec;
+        flag = true;
+    }
+
     public void resetAmount()
     {
         text.text = "";
