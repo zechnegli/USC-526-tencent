@@ -60,73 +60,96 @@ public class Customer_level2_script : MonoBehaviour
     void Update(){
         if(t){
             if(this.gameObject.name == "customer1"){
-                if(steamingBurgerCounterScript.instance.amount >= 2){
+                if(steamingBurgerCounterScript.instance.amount >= 2 && keyPress()){
     //                dialog.SetActive(false);           
-                    if (Input.GetKeyDown(KeyCode.P)) { 
                         steamingBurgerCounterScript.instance.ChangeAmount(-2);
                      //   CoinCounterScript.instance.ChangeAmount(40);
                      customerCounterScript.instance.ChangeAmount(1);
                         this.gameObject.transform.localPosition = new Vector3(-10,-10, 0);
                         this.dialog.transform.localPosition = new Vector3(-10,-10, 0);
                         Debug.Log("serve customer1");
-                    }
+                    
                 }
             }
             if(this.gameObject.name == "customer2"){
-                if(steamingBurgerCounterScript.instance.amount >= 3){
+                if(steamingBurgerCounterScript.instance.amount >= 3 && keyPress()){
     //                dialog.SetActive(false);           
-                    if (Input.GetKeyDown(KeyCode.P)) { 
                         steamingBurgerCounterScript.instance.ChangeAmount(-3);
                       //  CoinCounterScript.instance.ChangeAmount(60);
                       customerCounterScript.instance.ChangeAmount(1);
                         this.gameObject.transform.localPosition = new Vector3(-10,-10, 0);
                         this.dialog.transform.localPosition = new Vector3(-10,-10, 0);
                         Debug.Log("serve customer2");
-                    }
+                    
                 }
             }
             if(this.gameObject.name == "customer3"){
-                if(steamingBurgerCounterScript.instance.amount >= 4){
+                if(steamingBurgerCounterScript.instance.amount >= 4 && keyPress()){
     //                dialog.SetActive(false);           
-                    if (Input.GetKeyDown(KeyCode.P)) { 
                         steamingBurgerCounterScript.instance.ChangeAmount(-4);
                       //  CoinCounterScript.instance.ChangeAmount(80);
                       customerCounterScript.instance.ChangeAmount(1);
                         this.gameObject.transform.localPosition = new Vector3(-10,-10, 0);
                         this.dialog.transform.localPosition = new Vector3(-10,-10, 0);
                         Debug.Log("serve customer3");
-                    }
+                    
                 }
             }
             if(this.gameObject.name == "customer4"){
-                if(steamingBurgerCounterScript.instance.amount >= 2){
+                if(steamingBurgerCounterScript.instance.amount >= 2 && keyPress()){
     //                dialog.SetActive(false);           
-                    if (Input.GetKeyDown(KeyCode.P)) { 
                         steamingBurgerCounterScript.instance.ChangeAmount(-2);
                       //  CoinCounterScript.instance.ChangeAmount(40);
                       customerCounterScript.instance.ChangeAmount(1);
                         this.gameObject.transform.localPosition = new Vector3(-10,-10, 0);
                         this.dialog.transform.localPosition = new Vector3(-10,-10, 0);
                         Debug.Log("serve customer4");
-                    }
+                    
                 }
             }
             if(this.gameObject.name == "customer5"){
-                if(steamingBurgerCounterScript.instance.amount >= 4){
-    //                dialog.SetActive(false);           
-                    if (Input.GetKeyDown(KeyCode.P)) { 
+                if(steamingBurgerCounterScript.instance.amount >= 4 && keyPress()){
+    //                dialog.SetActive(false);            
                         steamingBurgerCounterScript.instance.ChangeAmount(-4);
                        // CoinCounterScript.instance.ChangeAmount(80);
                        customerCounterScript.instance.ChangeAmount(1);
                         this.gameObject.transform.localPosition = new Vector3(-10,-10, 0);
                         this.dialog.transform.localPosition = new Vector3(-10,-10, 0);
                         Debug.Log("serve customer5");
-                    }
+
                 }
             }
             
         }
     
+    }
+    
+    public bool keyPress() {  
+        if (Input.GetKeyDown (KeyCode.P))
+        {
+            print("press key");
+            ProgressBar.instance.displayProgressBar();
+            //Touch Begin - True when the finger touches the screen
+            //Play animation for chicken squat
+        }
+        else if(Input.GetKey (KeyCode.P))
+        {
+            print("hold key");
+            ProgressBar.instance.incrementProgress(0.1f);
+            //Touch Continued - True when the finger is still touching the screen
+            if (ProgressBar.instance.checkIfSliderToFull()) {
+                ProgressBar.instance.hideProgressBar();
+                return true;
+            }
+        }
+        else if(Input.GetKeyUp (KeyCode.P))
+        {
+            print("release key");
+            ProgressBar.instance.hideProgressBar();
+            //Touch End - True when the finger is lifted from the screen
+            //Play animation for chicken jump
+        }
+        return false;
     }
 
 
