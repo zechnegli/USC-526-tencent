@@ -33,7 +33,7 @@ public class BurgerScript : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
           
-//            BurgerCounterScript.instance.ChangeAmount(burgernum);
+            BurgerCounterScript.instance.ChangeAmount(burgernum);
 //            CoinCounterScript.instance.ChangeAmount(20);
        
 //            Debug.Log(BurgerCounterScript.instance.amount);

@@ -26,6 +26,8 @@ public class OrdersController : MonoBehaviour
     // Start is called before the first frame update
     public static OrdersController instance;
     int ingredient = 1;
+    int progressBar = 0;
+    float time = (float) 20.0;
     void Start()
     {
         if (instance == null)
@@ -36,12 +38,11 @@ public class OrdersController : MonoBehaviour
         {
             GameObject newOb = GenerateOrder(i);
             orders.Add(newOb);
-            Timers.Add((float)20.0);
+            Timers.Add((float)time);
         }
         keyboardNums.Add(KeyCode.Alpha1);
         keyboardNums.Add(KeyCode.Alpha2);
         keyboardNums.Add(KeyCode.Alpha3);
-        keyboardNums.Add(KeyCode.Alpha4);
         
     }
 
@@ -55,7 +56,7 @@ public class OrdersController : MonoBehaviour
         ob.transform.SetParent(this.transform);
         //根据parent的position调整位置
         ob.transform.position = this.transform.position + getOrderPosition(num);
-
+        ob.GetComponentsInChildren<ProgressBar>()[progressBar].displayProgressBar();
 //        //生成订单编号
 //        TextMeshProUGUI number = ob.GetComponentsInChildren<TextMeshProUGUI>()[0];
 //        number.text = (num + 1).ToString();
@@ -64,33 +65,44 @@ public class OrdersController : MonoBehaviour
 
         return ob;
     }
-
+    float elapsed = 0f;
     // Update is called once per frame
     [Obsolete]
     void Update()
     {
+        elapsed += Time.deltaTime;
         //check timers
         for (int i = 0; i < orders.Count; i++){
             if(Timers[i] > 0){
+                float previous = Timers[i];
                 Timers[i] -= Time.deltaTime;
-                orders[i].GetComponentsInChildren<TextMeshProUGUI>()[0].text = ((int)Timers[i]).ToString();
+                orders[i].GetComponentsInChildren<TextMeshProUGUI>()[0].text = ((int)Timers[i]).ToString();         
             }else if(Timers[i] != -(float)1){
                 hideOrder(i, 0);
                 Timers[i] = -(float)1;
             }
         }
+        //progress bar
+        if (elapsed >= 1f) {
+            for (int i = 0; i < orders.Count; i++){
+                 elapsed = elapsed % 1f;
+                 orders[i].GetComponentsInChildren<ProgressBar>()[progressBar].incrementProgress(((float) 1) / time);
+            }
+        }          
+
+        
     
         //select order to fulfill
-        for (int i = 0; i < keyboardNums.Count; i++)
-        {
-            if (Input.GetKeyDown(keyboardNums[i])) {
-                hideOrder(i, 1);           
-            }
-        }
+//        for (int i = 0; i < keyboardNums.Count; i++)
+//        {
+//            if (Input.GetKeyDown(keyboardNums[i])) {
+//                hideOrder(i, 1);           
+//            }
+//        }
 
         //show a new order after one second 
         timer += Time.deltaTime;
-        if (timer > 6f)
+        if (timer > 3f)
         {
             for (int i = 0; i < orders.Count; i++)
             {
@@ -151,7 +163,7 @@ public class OrdersController : MonoBehaviour
             burgers[index].SetActive(true);
             GameObject currentIngredients = currentOrder.transform.GetChild(ingredient).gameObject;
             updateOrderIngredients(currentIngredients);
-            Timers[index] = (float)20.0;
+            Timers[index] = (float)time;
         }
 
     }

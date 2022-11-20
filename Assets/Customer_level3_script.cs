@@ -64,16 +64,15 @@ public class Customer_level3_script : MonoBehaviour
                 OrdersControllerLevel3.instance.highlightOrder(0);
                 
     //                dialog.SetActive(false);           
-                    if (Input.GetKeyDown(KeyCode.P)) { 
-                        if(OrdersControllerLevel3.instance.checkIfIngredientsCompleted(0)){
-                        //MenuIngredientsController.instance.checkIngredients();
-                        //CoinCounterScript.instance.ChangeAmount(40);
-                             customerCounterScript.instance.ChangeAmount(1);
-                            // this.gameObject.transform.localPosition = new Vector3(-10,-10, 0);
-                            // this.dialog.transform.localPosition = new Vector3(-10,-10, 0);
-                            Debug.Log("serve customer1");
-                        }
+                if(OrdersControllerLevel3.instance.checkIfIngredientsCompleted(0) && keyPress()){
+                //MenuIngredientsController.instance.checkIngredients();
+                    //CoinCounterScript.instance.ChangeAmount(40);
+                         customerCounterScript.instance.ChangeAmount(1);
+                        // this.gameObject.transform.localPosition = new Vector3(-10,-10, 0);
+                        // this.dialog.transform.localPosition = new Vector3(-10,-10, 0);
+                        Debug.Log("serve customer1");
                     }
+                    
             }
 
             

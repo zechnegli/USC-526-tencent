@@ -11,13 +11,14 @@ public class ProgressBar : MonoBehaviour
     public float fillSpeed = 0.5f;
     public bool isFull = false;
     // Start is called before the first frame update
+    public bool showProgressBar = false;
     void Start()
     {
         if (instance == null)
         {
             instance = this;
         }
-        this.gameObject.SetActive(false);
+        this.gameObject.SetActive(showProgressBar);
         slider = gameObject.GetComponent<Slider>();
 //        this.gameObject.SetActive(false);
     }

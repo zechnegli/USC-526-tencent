@@ -66,8 +66,7 @@ public class Customer_level4_script : MonoBehaviour
                 OrdersController.instance.highlightOrder(0);
                 
     //                dialog.SetActive(false);           
-                    if (Input.GetKeyDown(KeyCode.P)) { 
-                        if(OrdersController.instance.checkIfIngredientsCompleted(0)){
+                    if (OrdersController.instance.checkIfIngredientsCompleted(0) && keyPress()) { 
                         //MenuIngredientsController.instance.checkIngredients();
                         //CoinCounterScript.instance.ChangeAmount(40);
                             OrdersController.instance.hideOrder(0,1);
@@ -75,36 +74,32 @@ public class Customer_level4_script : MonoBehaviour
                             // this.gameObject.transform.localPosition = new Vector3(-10,-10, 0);
                             // this.dialog.transform.localPosition = new Vector3(-10,-10, 0);
                             Debug.Log("serve customer1");
-                        }
                     }
             }
             if(this.gameObject.name == "customer2"){
                 OrdersController.instance.highlightOrder(1);
-                if (Input.GetKeyDown(KeyCode.P)) { 
-                        if(OrdersController.instance.checkIfIngredientsCompleted(1)){
-                        //MenuIngredientsController.instance.checkIngredients();
-                        //CoinCounterScript.instance.ChangeAmount(40);
-                            OrdersController.instance.hideOrder(1,1);
-                             customerCounterScript.instance.ChangeAmount(1);
-                            // this.gameObject.transform.localPosition = new Vector3(-10,-10, 0);
-                            // this.dialog.transform.localPosition = new Vector3(-10,-10, 0);
-                            Debug.Log("serve customer2");
-                        }
-                    }
+                if(OrdersController.instance.checkIfIngredientsCompleted(1) && keyPress()){
+                //MenuIngredientsController.instance.checkIngredients();
+                //CoinCounterScript.instance.ChangeAmount(40);
+                    OrdersController.instance.hideOrder(1,1);
+                     customerCounterScript.instance.ChangeAmount(1);
+                    // this.gameObject.transform.localPosition = new Vector3(-10,-10, 0);
+                    // this.dialog.transform.localPosition = new Vector3(-10,-10, 0);
+                    Debug.Log("serve customer2");
+                }
+                    
             }
             if(this.gameObject.name == "customer3"){
                 OrdersController.instance.highlightOrder(2);
-                if (Input.GetKeyDown(KeyCode.P)) { 
-                        if(OrdersController.instance.checkIfIngredientsCompleted(2)){
-                        //MenuIngredientsController.instance.checkIngredients();
-                        //CoinCounterScript.instance.ChangeAmount(40);
-                            OrdersController.instance.hideOrder(2,1);
-                             customerCounterScript.instance.ChangeAmount(1);
-                            // this.gameObject.transform.localPosition = new Vector3(-10,-10, 0);
-                            // this.dialog.transform.localPosition = new Vector3(-10,-10, 0);
-                            Debug.Log("serve customer3");
-                        }
-                    }
+                if(OrdersController.instance.checkIfIngredientsCompleted(2) && keyPress()){
+                //MenuIngredientsController.instance.checkIngredients();
+                //CoinCounterScript.instance.ChangeAmount(40);
+                    OrdersController.instance.hideOrder(2,1);
+                     customerCounterScript.instance.ChangeAmount(1);
+                    // this.gameObject.transform.localPosition = new Vector3(-10,-10, 0);
+                    // this.dialog.transform.localPosition = new Vector3(-10,-10, 0);
+                    Debug.Log("serve customer3");
+                }
             }
             /*
             if(this.gameObject.name == "customer4"){
