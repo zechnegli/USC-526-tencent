@@ -130,7 +130,7 @@ namespace Platformer.Mechanics
 
                     Scene currentscene = SceneManager.GetActiveScene();
                     string scenename = currentscene.name;
-                    if(scenename == "Level3_Scene" && CoinCounterScript.instance.amount >= expectCoins && sendTime == false){
+                    if(scenename == "Level3_Scene" && customerCounterScript.instance.amount >= 1 && sendTime == false){
                         SceneManager.LoadScene("Level3CompletedMenu");
                         SceneManager.UnloadScene(scenename);
                     }
@@ -208,7 +208,7 @@ namespace Platformer.Mechanics
                     timeRemaining = 0;
                     timerIsRunning = false;
                     
-                    if(CoinCounterScript.instance.amount<300)
+                    if(customerCounterScript.instance.amount<expectCustomers)
                     {
                         Time.timeScale = 0f;
                         DeathReason.controller.Send("Time Out");

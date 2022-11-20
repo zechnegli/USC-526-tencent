@@ -11,7 +11,7 @@ public class OrdersController : MonoBehaviour
     //绑定订单类
     public GameObject order;
     //同时最多存在的订单数
-    private int OrdersMaxNum = 4;
+    private int OrdersMaxNum = 3;
     //当前订单数
     private int OrdersNum = 0;
     //timer list
@@ -25,6 +25,7 @@ public class OrdersController : MonoBehaviour
     private float timer = 0f;
     // Start is called before the first frame update
     public static OrdersController instance;
+    int ingredient = 1;
     void Start()
     {
         if (instance == null)
@@ -55,13 +56,9 @@ public class OrdersController : MonoBehaviour
         //根据parent的position调整位置
         ob.transform.position = this.transform.position + getOrderPosition(num);
 
-        //生成订单编号
-        TextMeshProUGUI number = ob.GetComponentsInChildren<TextMeshProUGUI>()[0];
-        number.text = (num + 1).ToString();
-
-        //随机生成订单奖励
-        TextMeshProUGUI reward = ob.GetComponentsInChildren<TextMeshProUGUI>()[2];
-        reward.text = Random.Range(50,150).ToString();
+//        //生成订单编号
+//        TextMeshProUGUI number = ob.GetComponentsInChildren<TextMeshProUGUI>()[0];
+//        number.text = (num + 1).ToString();
 
         //get ingredients
 
@@ -76,7 +73,7 @@ public class OrdersController : MonoBehaviour
         for (int i = 0; i < orders.Count; i++){
             if(Timers[i] > 0){
                 Timers[i] -= Time.deltaTime;
-                orders[i].GetComponentsInChildren<TextMeshProUGUI>()[3].text = ((int)Timers[i]).ToString();
+                orders[i].GetComponentsInChildren<TextMeshProUGUI>()[0].text = ((int)Timers[i]).ToString();
             }else if(Timers[i] != -(float)1){
                 hideOrder(i, 0);
                 Timers[i] = -(float)1;
@@ -116,7 +113,7 @@ public class OrdersController : MonoBehaviour
             bool finished = false;
             
             if(mode==1){
-                finished =  currentOrder.transform.GetChild(5).gameObject.GetComponent<MenuIngredientsController>().checkIngredients();
+                finished =  currentOrder.transform.GetChild(ingredient).gameObject.GetComponent<MenuIngredientsController>().checkIngredients();
                 if (!finished)
                 {
                     return;
@@ -124,11 +121,10 @@ public class OrdersController : MonoBehaviour
             }
   
             
-            if (Timers[index]>0 & finished & currentOrder.active)
-            {
-                TextMeshProUGUI reward = currentOrder.GetComponentsInChildren<TextMeshProUGUI>()[2];
-                getPoints(Int32.Parse(reward.text));
-            }
+//            if (Timers[index]>0 & finished & currentOrder.active)
+//            {
+//                getPoints(Int32.Parse(reward.text));
+//            }
             currentOrder.SetActive(false);
             burgers[index].SetActive(false);
         }
@@ -153,7 +149,7 @@ public class OrdersController : MonoBehaviour
             GameObject currentOrder = orders[index];
             currentOrder.SetActive(true);
             burgers[index].SetActive(true);
-            GameObject currentIngredients = currentOrder.transform.GetChild(5).gameObject;
+            GameObject currentIngredients = currentOrder.transform.GetChild(ingredient).gameObject;
             updateOrderIngredients(currentIngredients);
             Timers[index] = (float)20.0;
         }
@@ -177,7 +173,7 @@ public class OrdersController : MonoBehaviour
     
     public bool checkIfIngredientsCompleted(int index) {
         GameObject currentOrder = orders[index];
-        return currentOrder.transform.GetChild(5).gameObject.GetComponent<MenuIngredientsController>().checkIngredients();
+        return currentOrder.transform.GetChild(ingredient).gameObject.GetComponent<MenuIngredientsController>().checkIngredients();
     }
     
 

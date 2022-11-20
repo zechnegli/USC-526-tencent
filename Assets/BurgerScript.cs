@@ -9,6 +9,7 @@ using Vector3 = UnityEngine.Vector3;
 public class BurgerScript : MonoBehaviour
 {
     public int burgernum = 1;
+    public int level = 0;
     //public Sprite[] sprites;
     //private int oldSprite;
     //private int newSprite;
@@ -26,14 +27,16 @@ public class BurgerScript : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-
+        if (level != 0) {
+            return;
+        }
         if (other.gameObject.CompareTag("Player"))
         {
           
-            BurgerCounterScript.instance.ChangeAmount(burgernum);
+//            BurgerCounterScript.instance.ChangeAmount(burgernum);
 //            CoinCounterScript.instance.ChangeAmount(20);
        
-            Debug.Log(BurgerCounterScript.instance.amount);
+//            Debug.Log(BurgerCounterScript.instance.amount);
             float x_coordinate = Random.Range(-4.3f, 43f);
             float y_coordinate = 0f;
             if (x_coordinate < 18.62)

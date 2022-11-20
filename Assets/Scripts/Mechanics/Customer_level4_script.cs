@@ -54,7 +54,6 @@ public class Customer_level4_script : MonoBehaviour
         OrdersController.instance.deHighlightOrder(0);
         OrdersController.instance.deHighlightOrder(1);
         OrdersController.instance.deHighlightOrder(2);
-        OrdersController.instance.deHighlightOrder(3);
     }
     
     void Start(){
