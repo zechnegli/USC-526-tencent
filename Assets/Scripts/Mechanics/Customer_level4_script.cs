@@ -64,9 +64,15 @@ public class Customer_level4_script : MonoBehaviour
         if(t){
             if(this.gameObject.name == "customer1"){
                 OrdersController.instance.highlightOrder(0);
+                KillText.instance.show("Press E To Enter Collection Area No.1", 2);
+                if (Input.GetKeyDown(KeyCode.E))
+                {
+                    GameObject player_transform = GameObject.Find("Player");
+                    player_transform.transform.position = new Vector3(27, 0, 0);
+                }
                 
-    //                dialog.SetActive(false);           
-                    if (OrdersController.instance.checkIfIngredientsCompleted(0) && keyPress()) { 
+                //                dialog.SetActive(false);           
+                if (OrdersController.instance.checkIfIngredientsCompleted(0) && keyPress()) { 
                         //MenuIngredientsController.instance.checkIngredients();
                         //CoinCounterScript.instance.ChangeAmount(40);
                             OrdersController.instance.hideOrder(0,1);
@@ -78,7 +84,13 @@ public class Customer_level4_script : MonoBehaviour
             }
             if(this.gameObject.name == "customer2"){
                 OrdersController.instance.highlightOrder(1);
-                if(OrdersController.instance.checkIfIngredientsCompleted(1) && keyPress()){
+                KillText.instance.show("Press E To Enter Collection Area No.2", 2);
+                if (Input.GetKeyDown(KeyCode.E))
+                {
+                    GameObject player_transform = GameObject.Find("Player");
+                    player_transform.transform.position = new Vector3(66, 0, 0);
+                }
+                if (OrdersController.instance.checkIfIngredientsCompleted(1) && keyPress()){
                 //MenuIngredientsController.instance.checkIngredients();
                 //CoinCounterScript.instance.ChangeAmount(40);
                     OrdersController.instance.hideOrder(1,1);
@@ -91,7 +103,13 @@ public class Customer_level4_script : MonoBehaviour
             }
             if(this.gameObject.name == "customer3"){
                 OrdersController.instance.highlightOrder(2);
-                if(OrdersController.instance.checkIfIngredientsCompleted(2) && keyPress()){
+                KillText.instance.show("Press E To Enter Collection Area No.3", 2);
+                if (Input.GetKeyDown(KeyCode.E))
+                {
+                    GameObject player_transform = GameObject.Find("Player");
+                    player_transform.transform.position = new Vector3(98, 5, 0);
+                }
+                if (OrdersController.instance.checkIfIngredientsCompleted(2) && keyPress()){
                 //MenuIngredientsController.instance.checkIngredients();
                 //CoinCounterScript.instance.ChangeAmount(40);
                     OrdersController.instance.hideOrder(2,1);
@@ -100,6 +118,14 @@ public class Customer_level4_script : MonoBehaviour
                     // this.dialog.transform.localPosition = new Vector3(-10,-10, 0);
                     Debug.Log("serve customer3");
                 }
+            }
+            if(this.gameObject.tag == "door1"){
+                KillText.instance.show("Press E Return To Cooking Area", 2);
+                if (Input.GetKeyDown(KeyCode.E))
+                    {
+                        GameObject player_transform = GameObject.Find("Player");
+                        player_transform.transform.position = new Vector3(6, 0, 0);
+                    }
             }
             /*
             if(this.gameObject.name == "customer4"){
@@ -128,7 +154,7 @@ public class Customer_level4_script : MonoBehaviour
                 }
             }
             */
-            
+
         }
         
         // 
@@ -162,5 +188,6 @@ public class Customer_level4_script : MonoBehaviour
             //Play animation for chicken jump
         }
         return false;
-    }
+     }
+
 }
