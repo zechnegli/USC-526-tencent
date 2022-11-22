@@ -354,5 +354,21 @@ namespace Platformer.Mechanics
             InFlight,
             Landed
         }
+        //public void OnTriggerExit2D(Collider2D other)
+        //{
+        //    if (other.gameObject.CompareTag("Player"))
+        //    {
+        //        if (this.gameObject.name == "door1")
+        //        {
+        //            KillText.instance.show("Press E Return To Cooking", 2);
+        //            if (Input.GetKeyDown(KeyCode.E))
+        //            {
+        //                GameObject player_transform = GameObject.Find("Player");
+        //                player_transform.transform.position = new Vector3(6, 0, 0);
+        //            }
+
+        //        }
+        //    }
+        //}
     }
 }
