@@ -33,6 +33,7 @@ public class level4MeatScript : MonoBehaviour
         {
             if (this.gameObject.name == "meat")
             {
+                
                 MeatCounterScript.instance.ChangeAmount(meatNum);
             }
             if (this.gameObject.name == "vegetable")

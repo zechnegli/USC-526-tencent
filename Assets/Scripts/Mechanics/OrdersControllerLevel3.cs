@@ -111,7 +111,7 @@ public class OrdersControllerLevel3 : MonoBehaviour
     
     public void deHighlightOrder(int index) {
         GameObject currentOrder = orders[index];
-        currentOrder.GetComponent<RawImage>().color = new Color32(233, 182, 91, 255);
+        currentOrder.GetComponent<RawImage>().color = new Color32(233, 182, 91, 154);
     }
     
     public bool checkIfIngredientsCompleted(int index) {
@@ -120,6 +120,12 @@ public class OrdersControllerLevel3 : MonoBehaviour
 //        print(currentOrder.transform.GetChild(0).gameObject.GetComponent<MenuIngredientsController>());
         return currentOrder.transform.GetChild(1).gameObject.GetComponent<MenuIngredientsController>().checkIngredients();
     }
+    
+    public void reduceIngredients(int index) {
+        GameObject currentOrder = orders[index]; currentOrder.transform.GetChild(1).gameObject.GetComponent<MenuIngredientsController>().reduceIngredients();
+    }
+    
+
     
 
 }

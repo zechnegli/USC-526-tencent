@@ -6,8 +6,8 @@ using UnityEngine.UI;
 public class ProgressBar : MonoBehaviour
 {
     public static ProgressBar instance;
-    private Slider slider;
-    private double targetProgress = 0;
+    public Slider slider;
+    public double targetProgress = 0;
     public float fillSpeed = 0.5f;
     public bool isFull = false;
     // Start is called before the first frame update
@@ -47,6 +47,7 @@ public class ProgressBar : MonoBehaviour
     public void resetSlider() {
         slider.value = 0;
         isFull = false;
+        targetProgress = 0;
     }
     
     public void displayProgressBar() {

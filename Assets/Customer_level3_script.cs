@@ -63,8 +63,10 @@ public class Customer_level3_script : MonoBehaviour
             if(this.gameObject.name == "customer1"){
                 OrdersControllerLevel3.instance.highlightOrder(0);
                 
-    //                dialog.SetActive(false);           
+    //                dialog.SetActive(false);    
+//                print(OrdersControllerLevel3.instance.checkIfIngredientsCompleted(0));
                 if(OrdersControllerLevel3.instance.checkIfIngredientsCompleted(0) && keyPress()){
+                    OrdersControllerLevel3.instance.reduceIngredients(0);
                 //MenuIngredientsController.instance.checkIngredients();
                     //CoinCounterScript.instance.ChangeAmount(40);
                          customerCounterScript.instance.ChangeAmount(1);

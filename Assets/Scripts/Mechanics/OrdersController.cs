@@ -28,6 +28,7 @@ public class OrdersController : MonoBehaviour
     int ingredient = 1;
     int progressBar = 0;
     float time = (float) 20.0;
+    public int highlightOrderIndex = -1;
     void Start()
     {
         if (instance == null)
@@ -76,7 +77,7 @@ public class OrdersController : MonoBehaviour
             if(Timers[i] > 0){
                 float previous = Timers[i];
                 Timers[i] -= Time.deltaTime;
-                orders[i].GetComponentsInChildren<TextMeshProUGUI>()[0].text = ((int)Timers[i]).ToString();         
+//                orders[i].GetComponentsInChildren<TextMeshProUGUI>()[0].text = ((int)Timers[i]).ToString();         
             }else if(Timers[i] != -(float)1){
                 hideOrder(i, 0);
                 Timers[i] = -(float)1;
@@ -85,9 +86,15 @@ public class OrdersController : MonoBehaviour
         //progress bar
         if (elapsed >= 1f) {
             for (int i = 0; i < orders.Count; i++){
-                 elapsed = elapsed % 1f;
-                 orders[i].GetComponentsInChildren<ProgressBar>()[progressBar].incrementProgress(((float) 1) / time);
+                GameObject currentOrder = orders[i];
+                if (currentOrder.active)
+                {
+                    
+                    orders[i].GetComponentsInChildren<ProgressBar>()[progressBar].incrementProgress(((float) 1) / time);
+                }
+                 
             }
+            elapsed = elapsed % 1f;
         }          
 
         
@@ -110,10 +117,17 @@ public class OrdersController : MonoBehaviour
                 if (!currentOrder.active)
                 {
                     displayNewOrder(i);
+                    orders[i].GetComponentsInChildren<ProgressBar>()[progressBar].resetSlider();  
                 }
+                 
             }
             timer = 0f;
+            elapsed = 0f;
         }
+        if (highlightOrderIndex != -1) {
+            highlightOrder(highlightOrderIndex);
+        } 
+        
     }
 
     public void hideOrder(int index, int mode)
@@ -140,6 +154,7 @@ public class OrdersController : MonoBehaviour
             currentOrder.SetActive(false);
             burgers[index].SetActive(false);
         }
+        
         
     }
 
@@ -180,12 +195,16 @@ public class OrdersController : MonoBehaviour
     
     public void deHighlightOrder(int index) {
         GameObject currentOrder = orders[index];
-        currentOrder.GetComponent<RawImage>().color = new Color32(233, 182, 91, 255);
+        currentOrder.GetComponent<RawImage>().color = new Color32(233, 182, 91, 154);
     }
     
     public bool checkIfIngredientsCompleted(int index) {
         GameObject currentOrder = orders[index];
         return currentOrder.transform.GetChild(ingredient).gameObject.GetComponent<MenuIngredientsController>().checkIngredients();
+    }
+    
+     public void reduceIngredients(int index) {
+        GameObject currentOrder = orders[index]; currentOrder.transform.GetChild(1).gameObject.GetComponent<MenuIngredientsController>().reduceIngredients();
     }
     
 

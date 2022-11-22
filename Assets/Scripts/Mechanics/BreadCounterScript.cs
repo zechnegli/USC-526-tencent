@@ -20,6 +20,7 @@ public class BreadCounterScript : MonoBehaviour
 
     public void ChangeAmount(int num){
       //  int amount = int.Parse(text.text);
+      print("num");
         amount += num;
         text.text = amount.ToString();
     }

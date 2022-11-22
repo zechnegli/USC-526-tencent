@@ -23,7 +23,7 @@ public class Customer_level4_script : MonoBehaviour
   }
   GameObject gameObject = Instantiate(food[Random.Range(0, sprites.Length)]);
  }*/
-
+    public int prevHighlightIndex = 0;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -67,6 +67,8 @@ public class Customer_level4_script : MonoBehaviour
                 KillText.instance.show("Press E To Enter Collection Area No.1", 2);
                 if (Input.GetKeyDown(KeyCode.E))
                 {
+                    OrdersController.instance.highlightOrderIndex = 0;
+                    prevHighlightIndex = 0;
                     GameObject player_transform = GameObject.Find("Player");
                     player_transform.transform.position = new Vector3(27, 0, 0);
                 }
@@ -74,6 +76,7 @@ public class Customer_level4_script : MonoBehaviour
                 //                dialog.SetActive(false);           
                 if (OrdersController.instance.checkIfIngredientsCompleted(0) && keyPress()) { 
                         //MenuIngredientsController.instance.checkIngredients();
+                        OrdersController.instance.reduceIngredients(0);
                         //CoinCounterScript.instance.ChangeAmount(40);
                             OrdersController.instance.hideOrder(0,1);
                              customerCounterScript.instance.ChangeAmount(1);
@@ -87,11 +90,14 @@ public class Customer_level4_script : MonoBehaviour
                 KillText.instance.show("Press E To Enter Collection Area No.2", 2);
                 if (Input.GetKeyDown(KeyCode.E))
                 {
+                    OrdersController.instance.highlightOrderIndex = 1;
+                    prevHighlightIndex = 1;
                     GameObject player_transform = GameObject.Find("Player");
                     player_transform.transform.position = new Vector3(66, 0, 0);
                 }
                 if (OrdersController.instance.checkIfIngredientsCompleted(1) && keyPress()){
                 //MenuIngredientsController.instance.checkIngredients();
+                OrdersController.instance.reduceIngredients(1);
                 //CoinCounterScript.instance.ChangeAmount(40);
                     OrdersController.instance.hideOrder(1,1);
                      customerCounterScript.instance.ChangeAmount(1);
@@ -106,12 +112,15 @@ public class Customer_level4_script : MonoBehaviour
                 KillText.instance.show("Press E To Enter Collection Area No.3", 2);
                 if (Input.GetKeyDown(KeyCode.E))
                 {
+                    OrdersController.instance.highlightOrderIndex = 2;
+                    prevHighlightIndex = 2;
                     GameObject player_transform = GameObject.Find("Player");
                     player_transform.transform.position = new Vector3(98, 5, 0);
                 }
                 if (OrdersController.instance.checkIfIngredientsCompleted(2) && keyPress()){
                 //MenuIngredientsController.instance.checkIngredients();
                 //CoinCounterScript.instance.ChangeAmount(40);
+                    OrdersController.instance.reduceIngredients(2);
                     OrdersController.instance.hideOrder(2,1);
                      customerCounterScript.instance.ChangeAmount(1);
                     // this.gameObject.transform.localPosition = new Vector3(-10,-10, 0);
@@ -123,6 +132,8 @@ public class Customer_level4_script : MonoBehaviour
                 KillText.instance.show("Press E Return To Cooking Area", 2);
                 if (Input.GetKeyDown(KeyCode.E))
                     {
+                        OrdersController.instance.highlightOrderIndex = -1;
+                        OrdersController.instance.deHighlightOrder(prevHighlightIndex);
                         GameObject player_transform = GameObject.Find("Player");
                         player_transform.transform.position = new Vector3(6, 0, 0);
                     }
