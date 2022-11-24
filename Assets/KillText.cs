@@ -15,6 +15,7 @@ public class KillText : MonoBehaviour
     public TextMeshProUGUI text;
     public int second = 3;
     public bool flag = false;
+    public Image background;
 
     void Start(){
         if(instance == null){
@@ -55,8 +56,11 @@ public class KillText : MonoBehaviour
                     resetAmount();
                 }
             }
+            
+            background.enabled = true;
         }else{
             text.text = "";
+            background.enabled = false;
         }
         
     }
