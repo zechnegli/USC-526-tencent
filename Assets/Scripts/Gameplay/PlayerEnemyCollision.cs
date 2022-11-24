@@ -63,12 +63,8 @@ namespace Platformer.Gameplay
         
         public void randomRewards() {
             Random random = new Random();
-            int rewards = random.Next(0, 3);
+            int rewards = random.Next(0, 2);
             if (rewards == 0) {
-                RewardCookingSpot.Instance.changePos();
-                KillText.instance.ChangeAmount("Move to Magical Place");
-                
-            } else if (rewards == 1) {
                 PlayerController.Instance.addTimeReward(10);
                 KillText.instance.ChangeAmount("+10s");
             } else {
