@@ -64,14 +64,14 @@ public class Customer_level4_script : MonoBehaviour
         if(t){
             if(this.gameObject.name == "customer1"){
                 OrdersController.instance.highlightOrder(0);
-                KillText.instance.show("Press E To Enter Collection Area No.1", 2);
-                if (Input.GetKeyDown(KeyCode.E))
-                {
-                    OrdersController.instance.highlightOrderIndex = 0;
-                    prevHighlightIndex = 0;
-                    GameObject player_transform = GameObject.Find("Player");
-                    player_transform.transform.position = new Vector3(27, 0, 0);
-                }
+//                KillText.instance.show("Press E To Enter Collection Area No.1", 2);
+//                if (Input.GetKeyDown(KeyCode.E))
+//                {
+//                    OrdersController.instance.highlightOrderIndex = 0;
+//                    prevHighlightIndex = 0;
+//                    GameObject player_transform = GameObject.Find("Player");
+//                    player_transform.transform.position = new Vector3(27, 0, 0);
+//                }
                 
                 //                dialog.SetActive(false);           
                 if (OrdersController.instance.checkIfIngredientsCompleted(0) && keyPress()) { 
@@ -87,14 +87,14 @@ public class Customer_level4_script : MonoBehaviour
             }
             if(this.gameObject.name == "customer2"){
                 OrdersController.instance.highlightOrder(1);
-                KillText.instance.show("Press E To Enter Collection Area No.2", 2);
-                if (Input.GetKeyDown(KeyCode.E))
-                {
-                    OrdersController.instance.highlightOrderIndex = 1;
-                    prevHighlightIndex = 1;
-                    GameObject player_transform = GameObject.Find("Player");
-                    player_transform.transform.position = new Vector3(66, 0, 0);
-                }
+//                KillText.instance.show("Press E To Enter Collection Area No.2", 2);
+//                if (Input.GetKeyDown(KeyCode.E))
+//                {
+//                    OrdersController.instance.highlightOrderIndex = 1;
+//                    prevHighlightIndex = 1;
+//                    GameObject player_transform = GameObject.Find("Player");
+//                    player_transform.transform.position = new Vector3(66, 0, 0);
+//                }
                 if (OrdersController.instance.checkIfIngredientsCompleted(1) && keyPress()){
                 //MenuIngredientsController.instance.checkIngredients();
                 OrdersController.instance.reduceIngredients(1);
@@ -109,14 +109,14 @@ public class Customer_level4_script : MonoBehaviour
             }
             if(this.gameObject.name == "customer3"){
                 OrdersController.instance.highlightOrder(2);
-                KillText.instance.show("Press E To Enter Collection Area No.3", 2);
-                if (Input.GetKeyDown(KeyCode.E))
-                {
-                    OrdersController.instance.highlightOrderIndex = 2;
-                    prevHighlightIndex = 2;
-                    GameObject player_transform = GameObject.Find("Player");
-                    player_transform.transform.position = new Vector3(98, 5, 0);
-                }
+//                KillText.instance.show("Press E To Enter Collection Area No.3", 2);
+//                if (Input.GetKeyDown(KeyCode.E))
+//                {
+//                    OrdersController.instance.highlightOrderIndex = 2;
+//                    prevHighlightIndex = 2;
+//                    GameObject player_transform = GameObject.Find("Player");
+//                    player_transform.transform.position = new Vector3(98, 5, 0);
+//                }
                 if (OrdersController.instance.checkIfIngredientsCompleted(2) && keyPress()){
                 //MenuIngredientsController.instance.checkIngredients();
                 //CoinCounterScript.instance.ChangeAmount(40);

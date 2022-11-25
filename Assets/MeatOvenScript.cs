@@ -9,6 +9,7 @@ using Vector3 = UnityEngine.Vector3;
 public class MeatOvenScript : MonoBehaviour
 {
      private bool t = false;
+     private bool hasShownText = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -30,7 +31,11 @@ public class MeatOvenScript : MonoBehaviour
     void Update()
     {
         if(t){
-             KillText.instance.show("Long Press P To Cook Meat", 2);
+            if (!hasShownText) {
+                KillText.instance.show("Long Press P To Cook Meat", 2);
+                hasShownText = true;
+            }
+             
            if(MeatCounterScript.instance.amount > 0 && keyPress()){
               //  Debug.Log("recept H key");
                int amount = MeatCounterScript.instance.amount;

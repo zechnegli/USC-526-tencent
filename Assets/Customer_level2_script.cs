@@ -15,6 +15,8 @@ public class Customer_level2_script : MonoBehaviour
     //private List<int> availableSprites = new List<int>();
     //public GameObject[] food;
     private bool t = false;
+    private bool hasShownText = false;
+    public GameObject burger;
 
     /*void Start() {
   oldSprite = 0;
@@ -59,6 +61,10 @@ public class Customer_level2_script : MonoBehaviour
     [Obsolete]
     void Update(){
         if(t){
+            if (!hasShownText) {
+                KillText.instance.show("Press P to serve", 2);
+                hasShownText = true;
+            }
             if(this.gameObject.name == "customer1"){
                 if(steamingBurgerCounterScript.instance.amount >= 2 && keyPress()){
     //                dialog.SetActive(false);           
@@ -68,6 +74,7 @@ public class Customer_level2_script : MonoBehaviour
                         this.gameObject.transform.localPosition = new Vector3(-10,-10, 0);
                         this.dialog.transform.localPosition = new Vector3(-10,-10, 0);
                         Debug.Log("serve customer1");
+                        this.burger.transform.localPosition = new Vector3(-10,-10, 0);
                     
                 }
             }
@@ -80,6 +87,7 @@ public class Customer_level2_script : MonoBehaviour
                         this.gameObject.transform.localPosition = new Vector3(-10,-10, 0);
                         this.dialog.transform.localPosition = new Vector3(-10,-10, 0);
                         Debug.Log("serve customer2");
+                        this.burger.transform.localPosition = new Vector3(-10,-10, 0);
                     
                 }
             }
@@ -92,6 +100,7 @@ public class Customer_level2_script : MonoBehaviour
                         this.gameObject.transform.localPosition = new Vector3(-10,-10, 0);
                         this.dialog.transform.localPosition = new Vector3(-10,-10, 0);
                         Debug.Log("serve customer3");
+                        this.burger.transform.localPosition = new Vector3(-10,-10, 0);
                     
                 }
             }
@@ -104,6 +113,7 @@ public class Customer_level2_script : MonoBehaviour
                         this.gameObject.transform.localPosition = new Vector3(-10,-10, 0);
                         this.dialog.transform.localPosition = new Vector3(-10,-10, 0);
                         Debug.Log("serve customer4");
+                        this.burger.transform.localPosition = new Vector3(-10,-10, 0);
                     
                 }
             }
@@ -116,6 +126,7 @@ public class Customer_level2_script : MonoBehaviour
                         this.gameObject.transform.localPosition = new Vector3(-10,-10, 0);
                         this.dialog.transform.localPosition = new Vector3(-10,-10, 0);
                         Debug.Log("serve customer5");
+                        this.burger.transform.localPosition = new Vector3(-10,-10, 0);
 
                 }
             }

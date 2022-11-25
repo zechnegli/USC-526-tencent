@@ -9,6 +9,7 @@ using Vector3 = UnityEngine.Vector3;
 public class board2Script : MonoBehaviour
 {
      private bool t = false;
+     private bool hasShownText = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -31,7 +32,11 @@ public class board2Script : MonoBehaviour
     void Update()
     {
         if(t){
-             KillText.instance.show("Long Press P To Cut Bread", 2);
+            if (!hasShownText) {
+                KillText.instance.show("Long Press P To Cut Bread", 2);
+                hasShownText = true;
+            }
+             
            if(BreadCounterScript.instance.amount > 0 && keyPress()){
             Debug.Log("bread cut ");
                int amount = BreadCounterScript.instance.amount;

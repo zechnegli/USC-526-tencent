@@ -10,6 +10,7 @@ public class OvenScript : MonoBehaviour
 {
 
     private bool t = false;
+    private bool hasShownText = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -34,7 +35,11 @@ public class OvenScript : MonoBehaviour
     void Update()
     {
         if(t){
-            KillText.instance.show("Long Press P To Heat Burgers", 2);
+            if (!hasShownText) {
+                KillText.instance.show("Long Press P To Heat Burgers", 2);
+                hasShownText = true;
+            }
+            
            if(keyPress()){
                int amount = BurgerCounterScript.instance.amount;
                BurgerCounterScript.instance.ChangeAmount(-amount);

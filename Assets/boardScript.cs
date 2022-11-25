@@ -9,6 +9,7 @@ using Vector3 = UnityEngine.Vector3;
 public class boardScript : MonoBehaviour
 {
     private bool t = false;
+    private bool hasShownText = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -31,7 +32,11 @@ public class boardScript : MonoBehaviour
     void Update()
     {
         if(t){
-            KillText.instance.show("Long Press P To Cut Vegetable", 2);
+            if (!hasShownText) {
+                KillText.instance.show("Long Press P To Cut Vegetable", 2);
+                hasShownText = true;
+            }
+            
            if(VegetableCounterScript.instance.amount > 0 && keyPress()){
                int amount = VegetableCounterScript.instance.amount;
                VegetableCounterScript.instance.ChangeAmount(-amount);

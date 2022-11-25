@@ -9,12 +9,14 @@ using Vector3 = UnityEngine.Vector3;
 public class CustomerScript : MonoBehaviour
 {
     public GameObject dialog;
+    public GameObject burger;
     //public Sprite[] sprites;
     //private int oldSprite;
     //private int newSprite;
     //private List<int> availableSprites = new List<int>();
     //public GameObject[] food;
     private bool t = false;
+    private bool hasShownText = false;
 
     /*void Start() {
   oldSprite = 0;
@@ -59,7 +61,11 @@ public class CustomerScript : MonoBehaviour
     [Obsolete]
     void Update(){
         if(t){
-            KillText.instance.show("Press P to serve", 2);
+            if (!hasShownText) {
+                KillText.instance.show("Press P to serve", 2);
+                hasShownText = true;
+            }
+            
             if(this.gameObject.name == "customer1"){
                 if(BurgerCounterScript.instance.amount >= 2 && keyPress()){
     //                dialog.SetActive(false);           
@@ -68,6 +74,7 @@ public class CustomerScript : MonoBehaviour
                      customerCounterScript.instance.ChangeAmount(1);
                         this.gameObject.transform.localPosition = new Vector3(-10,-10, 0);
                         this.dialog.transform.localPosition = new Vector3(-10,-10, 0);
+                        this.burger.transform.localPosition = new Vector3(-10,-10, 0);
                     
                 }
             }
@@ -79,6 +86,7 @@ public class CustomerScript : MonoBehaviour
                        customerCounterScript.instance.ChangeAmount(1);
                         this.gameObject.transform.localPosition = new Vector3(-10,-10, 0);
                         this.dialog.transform.localPosition = new Vector3(-10,-10, 0);
+                        this.burger.transform.localPosition = new Vector3(-10,-10, 0);
                 }
             }
             if(this.gameObject.name == "customer3"){
@@ -89,6 +97,7 @@ public class CustomerScript : MonoBehaviour
                        customerCounterScript.instance.ChangeAmount(1);
                         this.gameObject.transform.localPosition = new Vector3(-10,-10, 0);
                         this.dialog.transform.localPosition = new Vector3(-10,-10, 0);
+                        this.burger.transform.localPosition = new Vector3(-10,-10, 0);
                     
                 }
             }
@@ -100,6 +109,7 @@ public class CustomerScript : MonoBehaviour
                       customerCounterScript.instance.ChangeAmount(1);
                         this.gameObject.transform.localPosition = new Vector3(-10,-10, 0);
                         this.dialog.transform.localPosition = new Vector3(-10,-10, 0);
+                        this.burger.transform.localPosition = new Vector3(-10,-10, 0);
                     }
                 
             }
@@ -111,6 +121,7 @@ public class CustomerScript : MonoBehaviour
                       customerCounterScript.instance.ChangeAmount(1);
                         this.gameObject.transform.localPosition = new Vector3(-10,-10, 0);
                         this.dialog.transform.localPosition = new Vector3(-10,-10, 0);
+                        this.burger.transform.localPosition = new Vector3(-10,-10, 0);
                 }
             }
             
