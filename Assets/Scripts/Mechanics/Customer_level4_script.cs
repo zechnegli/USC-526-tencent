@@ -8,7 +8,8 @@ using Vector3 = UnityEngine.Vector3;
 
 public class Customer_level4_script : MonoBehaviour
 {
-   public GameObject dialog;
+    
+    public GameObject dialog;
     //public Sprite[] sprites;
     //private int oldSprite;
     //private int newSprite;
@@ -23,7 +24,9 @@ public class Customer_level4_script : MonoBehaviour
   }
   GameObject gameObject = Instantiate(food[Random.Range(0, sprites.Length)]);
  }*/
+    public static Customer_level4_script instance;
     public int prevHighlightIndex = 0;
+    public int chooseCustomer = 0;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -35,6 +38,7 @@ public class Customer_level4_script : MonoBehaviour
 //            Debug.Log(BurgerCounterScript.instance.amount);
 //            Debug.Log(CoinCounterScript.instance.amount);
             t = true;
+            chooseCustomer = 0;
 
 
             
@@ -62,43 +66,51 @@ public class Customer_level4_script : MonoBehaviour
     [Obsolete]
     void Update(){
         if(t){
-            if(this.gameObject.name == "customer1"){
+            if(this.gameObject.name == "customer1" && chooseCustomer == 0){
                 OrdersController.instance.highlightOrder(0);
-//                KillText.instance.show("Press E To Enter Collection Area No.1", 2);
-//                if (Input.GetKeyDown(KeyCode.E))
-//                {
-//                    OrdersController.instance.highlightOrderIndex = 0;
-//                    prevHighlightIndex = 0;
+                KillText.instance.show("Press C To Choose Serveing This Customer", 2);
+                if (Input.GetKeyDown(KeyCode.E))
+                {
+                    OrdersController.instance.highlightOrderIndex = 0;
+                    prevHighlightIndex = 0;
+                    chooseCustomer = 1;
 //                    GameObject player_transform = GameObject.Find("Player");
 //                    player_transform.transform.position = new Vector3(27, 0, 0);
-//                }
+                }
                 
                 //                dialog.SetActive(false);           
                 if (OrdersController.instance.checkIfIngredientsCompleted(0) && keyPress()) { 
                         //MenuIngredientsController.instance.checkIngredients();
                         OrdersController.instance.reduceIngredients(0);
+                        OrdersController.instance.highlightOrderIndex = -1;
+                        // OrdersController.instance.deHighlightOrder(prevHighlightIndex);
+                        chooseCustomer = 0;
                         //CoinCounterScript.instance.ChangeAmount(40);
-                            OrdersController.instance.hideOrder(0,1);
-                             customerCounterScript.instance.ChangeAmount(1);
-                            // this.gameObject.transform.localPosition = new Vector3(-10,-10, 0);
-                            // this.dialog.transform.localPosition = new Vector3(-10,-10, 0);
-                            Debug.Log("serve customer1");
+                        OrdersController.instance.hideOrder(0,1);
+                        customerCounterScript.instance.ChangeAmount(1);
+                        // this.gameObject.transform.localPosition = new Vector3(-10,-10, 0);
+                        // this.dialog.transform.localPosition = new Vector3(-10,-10, 0);
+                        Debug.Log("serve customer1");
                     }
             }
-            if(this.gameObject.name == "customer2"){
+            if(this.gameObject.name == "customer2" && chooseCustomer == 0){
                 OrdersController.instance.highlightOrder(1);
-//                KillText.instance.show("Press E To Enter Collection Area No.2", 2);
-//                if (Input.GetKeyDown(KeyCode.E))
-//                {
-//                    OrdersController.instance.highlightOrderIndex = 1;
-//                    prevHighlightIndex = 1;
+                KillText.instance.show("Press C To Choose Serveing This Customer", 2);
+                if (Input.GetKeyDown(KeyCode.C))
+                {
+                    OrdersController.instance.highlightOrderIndex = 1;
+                    prevHighlightIndex = 1;
+                    chooseCustomer = 1;
 //                    GameObject player_transform = GameObject.Find("Player");
 //                    player_transform.transform.position = new Vector3(66, 0, 0);
-//                }
+                }
                 if (OrdersController.instance.checkIfIngredientsCompleted(1) && keyPress()){
-                //MenuIngredientsController.instance.checkIngredients();
-                OrdersController.instance.reduceIngredients(1);
-                //CoinCounterScript.instance.ChangeAmount(40);
+                    //MenuIngredientsController.instance.checkIngredients();
+                    OrdersController.instance.reduceIngredients(1);
+                    OrdersController.instance.highlightOrderIndex = -1;
+                    // OrdersController.instance.deHighlightOrder(prevHighlightIndex);
+                    chooseCustomer = 0;
+                    //CoinCounterScript.instance.ChangeAmount(40);
                     OrdersController.instance.hideOrder(1,1);
                      customerCounterScript.instance.ChangeAmount(1);
                     // this.gameObject.transform.localPosition = new Vector3(-10,-10, 0);
@@ -107,22 +119,26 @@ public class Customer_level4_script : MonoBehaviour
                 }
                     
             }
-            if(this.gameObject.name == "customer3"){
+            if(this.gameObject.name == "customer3" && chooseCustomer == 0){
                 OrdersController.instance.highlightOrder(2);
-//                KillText.instance.show("Press E To Enter Collection Area No.3", 2);
-//                if (Input.GetKeyDown(KeyCode.E))
-//                {
-//                    OrdersController.instance.highlightOrderIndex = 2;
-//                    prevHighlightIndex = 2;
+                KillText.instance.show("Press C To Choose Serveing This Customer", 2);
+                if (Input.GetKeyDown(KeyCode.C))
+                {
+                    OrdersController.instance.highlightOrderIndex = 2;
+                    prevHighlightIndex = 2;
+                    chooseCustomer = 1;
 //                    GameObject player_transform = GameObject.Find("Player");
 //                    player_transform.transform.position = new Vector3(98, 5, 0);
-//                }
+                }
                 if (OrdersController.instance.checkIfIngredientsCompleted(2) && keyPress()){
                 //MenuIngredientsController.instance.checkIngredients();
                 //CoinCounterScript.instance.ChangeAmount(40);
                     OrdersController.instance.reduceIngredients(2);
+                    OrdersController.instance.highlightOrderIndex = -1;
+                    // OrdersController.instance.deHighlightOrder(prevHighlightIndex);
+                    chooseCustomer = 0;
                     OrdersController.instance.hideOrder(2,1);
-                     customerCounterScript.instance.ChangeAmount(1);
+                    customerCounterScript.instance.ChangeAmount(1);
                     // this.gameObject.transform.localPosition = new Vector3(-10,-10, 0);
                     // this.dialog.transform.localPosition = new Vector3(-10,-10, 0);
                     Debug.Log("serve customer3");
@@ -132,8 +148,7 @@ public class Customer_level4_script : MonoBehaviour
                 KillText.instance.show("Press E Return To Cooking Area", 2);
                 if (Input.GetKeyDown(KeyCode.E))
                     {
-                        OrdersController.instance.highlightOrderIndex = -1;
-                        OrdersController.instance.deHighlightOrder(prevHighlightIndex);
+                        // OrdersController.instance.highlightOrderIndex = -1;
                         GameObject player_transform = GameObject.Find("Player");
                         player_transform.transform.position = new Vector3(6, 0, 0);
                     }

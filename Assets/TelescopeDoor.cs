@@ -45,9 +45,10 @@ public class TelescopeDoor : MonoBehaviour
     void Update()
     {
         if(t){
-            KillText.instance.show("Press E To Enter Collection Area No.1", 2);
-            if (Input.GetKeyDown(KeyCode.E))
-                {
+             if(Customer_level4_script.instance.chooseCustomer == 1){
+                KillText.instance.show("Press E To Enter The Market", 2);
+                if (Input.GetKeyDown(KeyCode.E))
+                    {
                         GameObject player_transform = GameObject.Find("Player");
                         Random random = new Random();
                         int door = random.Next(0, 3);
@@ -59,7 +60,12 @@ public class TelescopeDoor : MonoBehaviour
                             player_transform.transform.position = new Vector3(27, 0, 0);
                         }                   
                         
+                    }
+                }
+            else{
+                KillText.instance.show("Please Back To Choose A Customer", 2);
             }
+            
         }
         
     }
