@@ -75,7 +75,7 @@ namespace Platformer.Gameplay
                     player.audioSource.PlayOneShot(player.ouchAudio);
                 player.animator.SetTrigger("hurt");
                 player.animator.SetBool("dead", true);
-                player.timeRemaining = 90;
+                player.timeRemaining = 180;
                 player.timerIsRunning = true;
                 Simulation.Schedule<PlayerSpawn>(2);
             }

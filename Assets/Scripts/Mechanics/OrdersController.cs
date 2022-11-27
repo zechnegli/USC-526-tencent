@@ -27,7 +27,7 @@ public class OrdersController : MonoBehaviour
     public static OrdersController instance;
     int ingredient = 1;
     int progressBar = 0;
-    float time = (float) 20.0;
+    float time = (float) 45.0;
     public int highlightOrderIndex = -1;
     void Start()
     {
