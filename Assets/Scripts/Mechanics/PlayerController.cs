@@ -24,7 +24,7 @@ namespace Platformer.Mechanics
         public bool timerIsRunning = false;
         public TMP_Text timeText;
         public int expectCoins = 300;
-       public int expectCustomers = 5;
+        public int expectCustomers = 5;
         public bool sendTime = false;
         public static PlayerController Instance;
         private bool firstJump = true;
