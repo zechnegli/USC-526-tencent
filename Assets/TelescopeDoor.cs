@@ -8,11 +8,15 @@ using Random = System.Random;
 
 public class TelescopeDoor : MonoBehaviour
 {
+    public static TelescopeDoor instance;
+    public int chooseCustomer = 0;
     private bool t = false; 
     // Start is called before the first frame update
     void Start()
     {
-        
+        if(instance == null){
+            instance = this;
+         }
     }
      private void OnTriggerEnter2D(Collider2D other)
     {
@@ -45,7 +49,7 @@ public class TelescopeDoor : MonoBehaviour
     void Update()
     {
         if(t){
-             if(Customer_level4_script.instance.chooseCustomer == 1){
+//             if(chooseCustomer != 0){
                 KillText.instance.show("Press E To Enter The Market", 2);
                 if (Input.GetKeyDown(KeyCode.E))
                     {
@@ -62,11 +66,11 @@ public class TelescopeDoor : MonoBehaviour
                         
                     }
                 }
-            else{
-                KillText.instance.show("Please Back To Choose A Customer", 2);
-            }
+//            else{
+//                KillText.instance.show("Please Back To Choose A Customer", 2);
+//            }
             
-        }
+//        }
         
     }
 }

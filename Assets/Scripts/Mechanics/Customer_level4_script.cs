@@ -38,7 +38,6 @@ public class Customer_level4_script : MonoBehaviour
 //            Debug.Log(BurgerCounterScript.instance.amount);
 //            Debug.Log(CoinCounterScript.instance.amount);
             t = true;
-            chooseCustomer = 0;
 
 
             
@@ -61,22 +60,31 @@ public class Customer_level4_script : MonoBehaviour
     }
     
     void Start(){
-    
+        if(instance == null){
+            instance = this;
+         }
     }
     [Obsolete]
     void Update(){
+        
         if(t){
+            print(chooseCustomer);
             if(this.gameObject.name == "customer1" && chooseCustomer == 0){
                 OrdersController.instance.highlightOrder(0);
-                KillText.instance.show("Press C To Choose Serveing This Customer", 2);
-                if (Input.GetKeyDown(KeyCode.E))
-                {
-                    OrdersController.instance.highlightOrderIndex = 0;
-                    prevHighlightIndex = 0;
-                    chooseCustomer = 1;
-//                    GameObject player_transform = GameObject.Find("Player");
-//                    player_transform.transform.position = new Vector3(27, 0, 0);
-                }
+//                KillText.instance.show("Press C To Choose Serveing This Customer", 2);
+//                if (Input.GetKeyDown(KeyCode.C))
+//                {
+//                    if (prevHighlightIndex != 0) {
+//                        OrdersController.instance.deHighlightOrder(prevHighlightIndex);
+//                    }
+//                    OrdersController.instance.highlightOrderIndex = 0;
+//                    prevHighlightIndex = 0;
+//                    TelescopeDoor.instance.chooseCustomer = 1;
+//                    
+//                    
+////                    GameObject player_transform = GameObject.Find("Player");
+////                    player_transform.transform.position = new Vector3(27, 0, 0);
+//                }
                 
                 //                dialog.SetActive(false);           
                 if (OrdersController.instance.checkIfIngredientsCompleted(0) && keyPress()) { 
@@ -95,20 +103,23 @@ public class Customer_level4_script : MonoBehaviour
             }
             if(this.gameObject.name == "customer2" && chooseCustomer == 0){
                 OrdersController.instance.highlightOrder(1);
-                KillText.instance.show("Press C To Choose Serveing This Customer", 2);
-                if (Input.GetKeyDown(KeyCode.C))
-                {
-                    OrdersController.instance.highlightOrderIndex = 1;
-                    prevHighlightIndex = 1;
-                    chooseCustomer = 1;
-//                    GameObject player_transform = GameObject.Find("Player");
-//                    player_transform.transform.position = new Vector3(66, 0, 0);
-                }
+//                KillText.instance.show("Press C To Choose Serveing This Customer", 2);
+//                if (Input.GetKeyDown(KeyCode.C))
+//                {
+//                    if (prevHighlightIndex != 1) {
+//                        OrdersController.instance.deHighlightOrder(prevHighlightIndex);
+//                    }
+//                    OrdersController.instance.highlightOrderIndex = 1;
+//                    prevHighlightIndex = 1;
+//                    TelescopeDoor.instance.chooseCustomer = 1;
+////                    GameObject player_transform = GameObject.Find("Player");
+////                    player_transform.transform.position = new Vector3(66, 0, 0);
+//                }
                 if (OrdersController.instance.checkIfIngredientsCompleted(1) && keyPress()){
                     //MenuIngredientsController.instance.checkIngredients();
                     OrdersController.instance.reduceIngredients(1);
                     OrdersController.instance.highlightOrderIndex = -1;
-                    // OrdersController.instance.deHighlightOrder(prevHighlightIndex);
+                     
                     chooseCustomer = 0;
                     //CoinCounterScript.instance.ChangeAmount(40);
                     OrdersController.instance.hideOrder(1,1);
@@ -121,15 +132,18 @@ public class Customer_level4_script : MonoBehaviour
             }
             if(this.gameObject.name == "customer3" && chooseCustomer == 0){
                 OrdersController.instance.highlightOrder(2);
-                KillText.instance.show("Press C To Choose Serveing This Customer", 2);
-                if (Input.GetKeyDown(KeyCode.C))
-                {
-                    OrdersController.instance.highlightOrderIndex = 2;
-                    prevHighlightIndex = 2;
-                    chooseCustomer = 1;
-//                    GameObject player_transform = GameObject.Find("Player");
-//                    player_transform.transform.position = new Vector3(98, 5, 0);
-                }
+//                KillText.instance.show("Press C To Choose Serveing This Customer", 2);
+//                if (Input.GetKeyDown(KeyCode.C))
+//                {
+//                    if (prevHighlightIndex != 2) {
+//                        OrdersController.instance.deHighlightOrder(prevHighlightIndex);
+//                    }
+//                    OrdersController.instance.highlightOrderIndex = 2;
+//                    prevHighlightIndex = 2;
+//                    TelescopeDoor.instance.chooseCustomer = 3;
+////                    GameObject player_transform = GameObject.Find("Player");
+////                    player_transform.transform.position = new Vector3(98, 5, 0);
+//                }
                 if (OrdersController.instance.checkIfIngredientsCompleted(2) && keyPress()){
                 //MenuIngredientsController.instance.checkIngredients();
                 //CoinCounterScript.instance.ChangeAmount(40);
@@ -148,6 +162,7 @@ public class Customer_level4_script : MonoBehaviour
                 KillText.instance.show("Press E Return To Cooking Area", 2);
                 if (Input.GetKeyDown(KeyCode.E))
                     {
+
                         // OrdersController.instance.highlightOrderIndex = -1;
                         GameObject player_transform = GameObject.Find("Player");
                         player_transform.transform.position = new Vector3(6, 0, 0);
