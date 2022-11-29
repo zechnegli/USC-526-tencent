@@ -88,14 +88,14 @@ public class Customer_level3_script : MonoBehaviour
      public bool keyPress() {  
         if (Input.GetKeyDown (KeyCode.P))
         {
-            print("press key");
+          //  print("press key");
             ProgressBar.instance.displayProgressBar();
             //Touch Begin - True when the finger touches the screen
             //Play animation for chicken squat
         }
         else if(Input.GetKey (KeyCode.P))
         {
-            print("hold key");
+         //   print("hold key");
             ProgressBar.instance.incrementProgress(0.1f);
             //Touch Continued - True when the finger is still touching the screen
             if (ProgressBar.instance.checkIfSliderToFull()) {
@@ -105,7 +105,7 @@ public class Customer_level3_script : MonoBehaviour
         }
         else if(Input.GetKeyUp (KeyCode.P))
         {
-            print("release key");
+          //  print("release key");
             ProgressBar.instance.hideProgressBar();
             //Touch End - True when the finger is lifted from the screen
             //Play animation for chicken jump

@@ -29,6 +29,7 @@ public class OrdersController : MonoBehaviour
     int progressBar = 0;
     float time = (float) 45.0;
     public int highlightOrderIndex = -1;
+    public bool[] finished = new bool[3];
     void Start()
     {
         if (instance == null)
@@ -44,6 +45,9 @@ public class OrdersController : MonoBehaviour
         keyboardNums.Add(KeyCode.Alpha1);
         keyboardNums.Add(KeyCode.Alpha2);
         keyboardNums.Add(KeyCode.Alpha3);
+        for(int i = 0; i < 3; i++){
+            finished[i] = false;
+        }
         
     }
 
@@ -71,9 +75,16 @@ public class OrdersController : MonoBehaviour
     [Obsolete]
     void Update()
     {
+        for( int i = 0; i < orders.Count; i++){
+            if(finished[i]){
+                hideOrder(i,0);
+            }
+        }
+        
         elapsed += Time.deltaTime;
         //check timers
         for (int i = 0; i < orders.Count; i++){
+        
             if(Timers[i] > 0){
                 float previous = Timers[i];
                 Timers[i] -= Time.deltaTime;
@@ -82,12 +93,14 @@ public class OrdersController : MonoBehaviour
                 hideOrder(i, 0);
                 Timers[i] = -(float)1;
             }
+          
         }
         //progress bar
         if (elapsed >= 1f) {
             for (int i = 0; i < orders.Count; i++){
+            
                 GameObject currentOrder = orders[i];
-                if (currentOrder.active)
+                if (currentOrder.active )
                 {
                     
                     orders[i].GetComponentsInChildren<ProgressBar>()[progressBar].incrementProgress(((float) 1) / time);
@@ -95,6 +108,7 @@ public class OrdersController : MonoBehaviour
                  
             }
             elapsed = elapsed % 1f;
+           
         }          
 
         
@@ -114,7 +128,8 @@ public class OrdersController : MonoBehaviour
             for (int i = 0; i < orders.Count; i++)
             {
                 GameObject currentOrder = orders[i];
-                if (!currentOrder.active)
+              //  if (!currentOrder.active)
+              if (!currentOrder.active && !finished[i])
                 {
                     displayNewOrder(i);
                     orders[i].GetComponentsInChildren<ProgressBar>()[progressBar].resetSlider();  
@@ -205,6 +220,10 @@ public class OrdersController : MonoBehaviour
     
      public void reduceIngredients(int index) {
         GameObject currentOrder = orders[index]; currentOrder.transform.GetChild(1).gameObject.GetComponent<MenuIngredientsController>().reduceIngredients();
+    }
+
+    public void markAsFinished(int index){
+        finished[index] = true;
     }
     
 

@@ -9,7 +9,7 @@ using Vector3 = UnityEngine.Vector3;
 public class Customer_level4_script : MonoBehaviour
 {
     
-    public GameObject dialog;
+    public GameObject meal;
     //public Sprite[] sprites;
     //private int oldSprite;
     //private int newSprite;
@@ -68,7 +68,7 @@ public class Customer_level4_script : MonoBehaviour
     void Update(){
         
         if(t){
-            print(chooseCustomer);
+          //  print(chooseCustomer);
             if(this.gameObject.name == "customer1" && chooseCustomer == 0){
                 OrdersController.instance.highlightOrder(0);
 //                KillText.instance.show("Press C To Choose Serveing This Customer", 2);
@@ -82,6 +82,7 @@ public class Customer_level4_script : MonoBehaviour
 //                    TelescopeDoor.instance.chooseCustomer = 1;
 //                    
 //                    
+                        
 ////                    GameObject player_transform = GameObject.Find("Player");
 ////                    player_transform.transform.position = new Vector3(27, 0, 0);
 //                }
@@ -96,6 +97,10 @@ public class Customer_level4_script : MonoBehaviour
                         //CoinCounterScript.instance.ChangeAmount(40);
                         OrdersController.instance.hideOrder(0,1);
                         customerCounterScript.instance.ChangeAmount(1);
+                        this.gameObject.transform.localPosition = new Vector3(-10,10, 0);
+                        this.meal.transform.localPosition = new Vector3(-10,10, 0);
+                         OrdersController.instance.markAsFinished(0);
+                 //       OrdersController.instance.hideOrder(0,0);
                         // this.gameObject.transform.localPosition = new Vector3(-10,-10, 0);
                         // this.dialog.transform.localPosition = new Vector3(-10,-10, 0);
                         Debug.Log("serve customer1");
@@ -124,6 +129,10 @@ public class Customer_level4_script : MonoBehaviour
                     //CoinCounterScript.instance.ChangeAmount(40);
                     OrdersController.instance.hideOrder(1,1);
                      customerCounterScript.instance.ChangeAmount(1);
+                     this.gameObject.transform.localPosition = new Vector3(-10,10, 0);
+                        this.meal.transform.localPosition = new Vector3(-10,10, 0);
+                        OrdersController.instance.markAsFinished(1);
+                   //      OrdersController.instance.hideOrder(1,0);
                     // this.gameObject.transform.localPosition = new Vector3(-10,-10, 0);
                     // this.dialog.transform.localPosition = new Vector3(-10,-10, 0);
                     Debug.Log("serve customer2");
@@ -153,6 +162,11 @@ public class Customer_level4_script : MonoBehaviour
                     chooseCustomer = 0;
                     OrdersController.instance.hideOrder(2,1);
                     customerCounterScript.instance.ChangeAmount(1);
+
+                    this.gameObject.transform.localPosition = new Vector3(-10,10, 0);
+                    this.meal.transform.localPosition = new Vector3(-10,10, 0);
+                    OrdersController.instance.markAsFinished(2);
+                  //   OrdersController.instance.hideOrder(2,0);
                     // this.gameObject.transform.localPosition = new Vector3(-10,-10, 0);
                     // this.dialog.transform.localPosition = new Vector3(-10,-10, 0);
                     Debug.Log("serve customer3");
@@ -206,14 +220,14 @@ public class Customer_level4_script : MonoBehaviour
      public bool keyPress() {  
         if (Input.GetKeyDown (KeyCode.P))
         {
-            print("press key");
+           // print("press key");
             ProgressBar.instance.displayProgressBar();
             //Touch Begin - True when the finger touches the screen
             //Play animation for chicken squat
         }
         else if(Input.GetKey (KeyCode.P))
         {
-            print("hold key");
+          //  print("hold key");
             ProgressBar.instance.incrementProgress(0.1f);
             //Touch Continued - True when the finger is still touching the screen
             if (ProgressBar.instance.checkIfSliderToFull()) {
@@ -223,7 +237,7 @@ public class Customer_level4_script : MonoBehaviour
         }
         else if(Input.GetKeyUp (KeyCode.P))
         {
-            print("release key");
+          //  print("release key");
             ProgressBar.instance.hideProgressBar();
             //Touch End - True when the finger is lifted from the screen
             //Play animation for chicken jump
