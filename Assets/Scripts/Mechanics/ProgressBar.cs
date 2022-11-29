@@ -27,7 +27,7 @@ public class ProgressBar : MonoBehaviour
     void Update()
     {
         if (slider.value < targetProgress) {
-            slider.value += fillSpeed * Time.deltaTime * 3;
+            slider.value += fillSpeed * Time.deltaTime;
         } 
 //        if (isFull) {
 //            this.myGameObject.SetActive(false);
